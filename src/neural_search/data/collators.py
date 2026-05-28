@@ -76,13 +76,47 @@ class ContrastiveBatchCollator:
             max_length=self.passage_max_length,
         )
 
-        return {
+        batch = {
             "query_input_ids": query_batch["input_ids"],
             "query_attention_mask": query_batch["attention_mask"],
             "pos_input_ids": positive_batch["input_ids"],
             "pos_attention_mask": positive_batch["attention_mask"],
         }
 
+        has_negatives = [bool(example.get("hard_negatives")) for example in examples]
+
+        if any(has_negatives):
+            if not all(has_negatives):
+                raise ValueError(
+                    "Either all examples in a batch must contain hard_negatives, "
+                    "or none of them should."
+                )
+
+            negative_counts = [len(example["hard_negatives"]) for example in examples]
+
+            if len(set(negative_counts)) != 1:
+                raise ValueError(
+                    "All examples in a batch must contain the same number of hard negatives, "
+                    f"got counts {negative_counts}"
+                )
+
+            negative_passages = [
+                str(negative)
+                for example in examples
+                for negative in example["hard_negatives"]
+            ]
+
+            negative_batch = self._encode_texts(
+                negative_passages,
+                max_length=self.passage_max_length,
+            )
+
+            batch["neg_input_ids"] = negative_batch["input_ids"]
+            batch["neg_attention_mask"] = negative_batch["attention_mask"]
+
+        return batch
+    
+    
     def _encode_texts(
         self,
         texts: list[str],
