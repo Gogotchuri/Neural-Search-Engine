@@ -29,3 +29,7 @@ wandb/
 *.pt
 *.pth
 *.ckpt
+
+*.pyc
+*.egg-info/
+dist/
