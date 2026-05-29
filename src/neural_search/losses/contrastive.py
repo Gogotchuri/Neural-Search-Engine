@@ -46,6 +46,7 @@ def infonce_loss(
     logits = query_embeddings @ positive_embeddings.T
     logits = logits / temperature
 
+    # [0, 1, 2, 3...,n-1] is the correct label for each (the diagonal)
     labels = torch.arange(query_embeddings.size(0), device=query_embeddings.device)
 
     return F.cross_entropy(logits, labels)
