@@ -11,11 +11,12 @@ def infonce_loss(
     negative_embeddings: torch.Tensor | None = None,
 ) -> torch.Tensor:
     """
-    Compute InfoNCE loss for dense retrieval using in-batch negatives.
+    Compute InfoNCE loss for dense retrieval using in-batch negatives
+    and optional explicit hard negatives.
 
     query_embeddings[i] should match positive_embeddings[i].
     All other positive_embeddings[j] where j != i are treated as negatives.
-    Both query_embeddings and positive_embeddings should be L2-normalized.
+    The embeddings are expected to be L2-normalized before calling this function.
 
     Without explicit negatives:
         logits shape is (B, B), where other positives in the batch are negatives.
