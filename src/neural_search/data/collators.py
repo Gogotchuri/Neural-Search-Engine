@@ -16,12 +16,26 @@ class ContrastiveBatchCollator:
             ...
         ]
 
+    or, with explicit hard negatives:
+        [
+            {
+                "query": "...",
+                "positive_passage": "...",
+                "hard_negatives": ["...", "..."],
+            },
+            ...
+        ]
+
     Output batch:
         {
             "query_input_ids": Tensor(B, query_max_length),
             "query_attention_mask": Tensor(B, query_max_length),
             "pos_input_ids": Tensor(B, passage_max_length),
             "pos_attention_mask": Tensor(B, passage_max_length),
+
+            # only present when hard_negatives are provided
+            "neg_input_ids": Tensor(B * num_negatives, passage_max_length),
+            "neg_attention_mask": Tensor(B * num_negatives, passage_max_length),
         }
     """
 
