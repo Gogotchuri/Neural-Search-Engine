@@ -1,0 +1,37 @@
+[project]
+name = "neural-search"
+version = "0.1.0"
+description = "Neural search engine over NLP textbook"
+requires-python = ">=3.10"
+dependencies = [
+    "datasets>=4.8.5",
+    "faiss-cpu",
+    "numpy",
+    "pypdf",
+    "rank-bm25",
+    "tokenizers",
+    "torch>=2.4",
+]
+
+[tool.ty.environment]
+python-version = "3.13"
+
+[project.scripts]
+build-corpus = "neural_search.cli.build_corpus:main"
+train-tokenizer = "neural_search.cli.train_tokenizer:main"
+train-encoder = "neural_search.cli.train_encoder:main"
+build-index = "neural_search.cli.build_index:main"
+search-neural = "neural_search.cli.search_neural:main"
+bm25-search = "neural_search.cli.bm25_search:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "ty>=0.0.39",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/neural_search"]
