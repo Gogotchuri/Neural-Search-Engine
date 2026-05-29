@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import json
+from pathlib import Path
 import random
 from typing import Any, Iterator
 
@@ -131,6 +133,44 @@ def collect_msmarco_positive_examples(
         random.Random(seed).shuffle(examples)
 
     return examples
+
+def write_msmarco_positive_pairs(
+    output_path: str | Path,
+    split: str = "train",
+    config_name: str = "v1.1",
+    max_examples: int | None = 50_000,
+    shuffle: bool = False,
+    seed: int = 42,
+    streaming: bool = True,
+    cache_dir: str | None = None,
+) -> int:
+    """
+    Write MS MARCO query-positive pairs to a local JSONL file.
+
+    Each line has:
+        {"query": str, "positive_passage": str}
+
+    This avoids repeatedly loading/parsing MS MARCO during training.
+    """
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    examples = collect_msmarco_positive_examples(
+        split=split,
+        config_name=config_name,
+        max_examples=max_examples,
+        shuffle=shuffle,
+        seed=seed,
+        streaming=streaming,
+        cache_dir=cache_dir,
+        include_known_positive_passages=False,
+    )
+
+    with open(output_path, "w", encoding="utf-8") as out_file:
+        for example in examples:
+            out_file.write(json.dumps(example, ensure_ascii=False) + "\n")
+
+    return len(examples)
 
 
 class MSMARCOPairsDataset(Dataset):
