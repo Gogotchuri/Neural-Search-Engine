@@ -23,6 +23,10 @@ train-encoder = "neural_search.cli.train_encoder:main"
 build-index = "neural_search.cli.build_index:main"
 search-neural = "neural_search.cli.search_neural:main"
 bm25-search = "neural_search.cli.bm25_search:main"
+cache-msmarco-pairs = "neural_search.cli.cache_msmarco_pairs:main"
+check-data-pipeline = "neural_search.cli.dataset_collators:main"
+mine-hard-negatives = "neural_search.cli.mine_hard_negatives:main"
+check-loss-pe = "neural_search.cli.loss_pe:main"
 
 [build-system]
 requires = ["hatchling"]
