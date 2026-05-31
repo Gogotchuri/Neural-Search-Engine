@@ -19,3 +19,7 @@ def main():
     args = parser.parse_args()
 
     train_tokenizer(args.chunks, args.output, n_msmarco=args.n_msmarco)
+
+
+if __name__ == "__main__":
+    main()
