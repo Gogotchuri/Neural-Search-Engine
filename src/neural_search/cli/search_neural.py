@@ -47,6 +47,10 @@ def main():
 
     print(f"\nTop {args.k} results for: '{args.query}'\n{'='*60}")
     for rank, result in enumerate(results, 1):
-        print(f"\n[{rank}] chunk_id={result['chunk_id']}  score={result['score']:.4f}")
+        print(f"\n[{rank}] id={result['id']}  score={result['score']:.4f}")
         print(f"    {result['chapter']} | {result['section']}")
         print(f"    {result['text'][:200]}...")
+
+
+if __name__ == "__main__":
+    main()

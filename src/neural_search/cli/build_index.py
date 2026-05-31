@@ -44,3 +44,7 @@ def main():
     retriever.build_index(device=args.device, batch_size=args.batch_size)
 
     print("Done.")
+
+
+if __name__ == "__main__":
+    main()
