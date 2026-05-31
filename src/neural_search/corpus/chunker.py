@@ -197,7 +197,7 @@ def save_chunks(chunks: List[Dict], output_path: str) -> None:
     with open(output_path, "w", encoding="utf-8") as out_file:
         for chunk in chunks:
             out_file.write(json.dumps(chunk, ensure_ascii=False) + "\n")
-    print(f"Saved {len(chunks)} chunks → {output_path}")
+    print(f"Saved {len(chunks)} chunks -> {output_path}")
 
 
 def load_chunks(path: str) -> List[Dict]:

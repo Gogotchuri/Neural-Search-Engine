@@ -83,7 +83,7 @@ class NeuralRetriever(Retriever):
 
         # Persist to disk
         faiss.write_index(self._index, self._index_path)
-        print(f"FAISS index saved → {self._index_path} ({self._index.ntotal} vectors)")
+        print(f"FAISS index saved -> {self._index_path} ({self._index.ntotal} vectors)")
 
     def retrieve(self, query: str, k: int = 10) -> List[Dict]:
         if self._index is None:
