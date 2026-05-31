@@ -42,9 +42,18 @@ class NeuralRetriever(Retriever):
         self._tokenizer = tokenizer
         self._index: faiss.IndexFlatIP | None = None
 
-        # Load pre-built index if it exists
+        # Load pre-built index if it exists, and guard against a stale one. The index
+        # is aligned to the chunks list *by position*, so an index built from a
+        # different corpus snapshot (e.g. before the chunks were re-chunked) would
+        # silently return the wrong passages or IndexError. Fail loudly instead.
         if Path(index_path).exists():
             self._index = faiss.read_index(index_path)
+            if self._index.ntotal != len(self._chunks):
+                raise ValueError(
+                    f"FAISS index '{index_path}' has {self._index.ntotal} vectors but "
+                    f"'{chunks_path}' has {len(self._chunks)} chunks. The index is stale "
+                    f"for this corpus — rebuild it with build_index()."
+                )
 
     @staticmethod
     def _load_chunks(path: str) -> List[Dict]:
@@ -82,9 +91,10 @@ class NeuralRetriever(Retriever):
                 "No FAISS index loaded. Call build_index() or provide an existing index file."
             )
 
-        # Encode the query
+        # Encode the query on the same device as the encoder
+        device = next(self._encoder.parameters()).device
         query_emb = self._encoder.encode(
-            [query], self._tokenizer
+            [query], self._tokenizer, device=str(device)
         )  # (1, hidden_dim)
 
         # Search: returns (scores, indices) each of shape (1, k)
@@ -97,7 +107,7 @@ class NeuralRetriever(Retriever):
             chunk = self._chunks[idx]
             results.append(
                 {
-                    "chunk_id": chunk["chunk_id"],
+                    "id": chunk["id"],
                     "text": chunk["text"],
                     "score": float(score),
                     "chapter": chunk["chapter"],
