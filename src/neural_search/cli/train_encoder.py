@@ -11,7 +11,7 @@ from torch.utils.data import DataLoader
 from neural_search.data import ContrastiveBatchCollator, MSMARCOPairsDataset
 from neural_search.encoder.config import EncoderConfig
 from neural_search.encoder.encoder import Encoder
-from neural_search.encoder.train import train
+from neural_search.encoder.train import load_checkpoint, train
 
 
 def main():
@@ -29,6 +29,13 @@ def main():
     parser.add_argument("--device", default="cpu")
     parser.add_argument("--checkpoint-dir", default="checkpoints/")
     parser.add_argument("--checkpoint-every", type=int, default=1000)
+    parser.add_argument("--log-every", type=int, default=100)
+    parser.add_argument("--max-grad-norm", type=float, default=5.0)
+    parser.add_argument(
+        "--resume",
+        default=None,
+        help="Path to checkpoint to load model weights from (fresh optimizer/scheduler)",
+    )
     parser.add_argument(
         "--max-examples",
         type=int,
@@ -66,6 +73,8 @@ def main():
     # Model
     config = EncoderConfig()
     encoder = Encoder(config)
+    if args.resume:
+        load_checkpoint(args.resume, encoder)
     n_params = sum(p.numel() for p in encoder.parameters())
     print(f"  Encoder: {n_params:,} parameters")
 
@@ -78,8 +87,10 @@ def main():
         lr=args.lr,
         weight_decay=args.weight_decay,
         temperature=args.temperature,
+        max_grad_norm=args.max_grad_norm,
         checkpoint_dir=args.checkpoint_dir,
         checkpoint_every=args.checkpoint_every,
+        log_every=args.log_every,
         device=args.device,
     )
 
