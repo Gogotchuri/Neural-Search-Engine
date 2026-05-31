@@ -1,4 +1,4 @@
-"""Train the BPE tokenizer on J&M + MS MARCO text → data/tokenizer.json.
+"""Train the BPE tokenizer on J&M + MS MARCO text -> data/tokenizer.json.
 
 Usage:
     python scripts/train_tokenizer.py

@@ -53,8 +53,8 @@ _DICTIONARY = _load_dictionary()
 def _keep_hyphen(left: str, right: str) -> bool:
     """Decide whether a hyphen at a line break is a genuine compound (keep it).
 
-    'retrieval' + 'based' → both real words, 'retrievalbased' is not → keep the hyphen.
-    'intro' + 'duce'      → 'introduce' is a real word                → drop the hyphen.
+    'retrieval' + 'based' -> both real words, 'retrievalbased' is not -> keep the hyphen.
+    'intro' + 'duce'      -> 'introduce' is a real word                -> drop the hyphen.
     Falls back to a capitalization heuristic when no dictionary is available.
     """
     left_l, right_l = left.lower(), right.lower()
@@ -190,13 +190,13 @@ def _clean_body(text: str) -> str:
     these make every chunk a wall of broken text, so we flatten a page into clean,
     flowing prose here before it ever reaches the chunker.
     """
-    text = unicodedata.normalize("NFKC", text)       # ﬁ→fi, ﬂ→fl, non-breaking spaces
+    text = unicodedata.normalize("NFKC", text)       # ﬁ->fi, ﬂ->fl, non-breaking spaces
     text = _dehyphenate(text)                         # join split words, keep compounds
     text = _split_margin_terms(text)                 # un-glue margin glossary terms
     text = _FIGURE_RE.sub("", text)
     text = _TABLE_RE.sub("", text)
     text = re.sub(r"\n\s*\d{1,4}\s*\n", "\n", text)   # drop standalone page numbers
-    text = re.sub(r"[ \t]*\n[ \t]*", " ", text)       # wrapped lines → single spaces
+    text = re.sub(r"[ \t]*\n[ \t]*", " ", text)       # wrapped lines -> single spaces
     text = re.sub(r"\s{2,}", " ", text)               # collapse remaining whitespace
     return text.strip()
 

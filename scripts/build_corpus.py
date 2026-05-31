@@ -1,4 +1,4 @@
-"""Extract and chunk the J&M PDF → data/chunks.jsonl.
+"""Extract and chunk the J&M PDF -> data/chunks.jsonl.
 
 Usage:
     python scripts/build_corpus.py "Speech and Language Processing.pdf"

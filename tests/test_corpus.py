@@ -100,9 +100,9 @@ def test_finalize_drops_unknown_chapter_and_dedups_and_clean_schema():
     base = {"chapter": "Chapter 2", "section": "2.4", "page_start": 12,
             "page_end": 12, "n_words": 120, "text": "a unique passage of prose"}
     raw = [
-        {**base, "chapter": "Unknown"},   # chapterless → dropped
-        dict(base),                        # kept → id ch2-0000
-        dict(base),                        # exact duplicate → dropped
+        {**base, "chapter": "Unknown"},   # chapterless -> dropped
+        dict(base),                        # kept -> id ch2-0000
+        dict(base),                        # exact duplicate -> dropped
     ]
     out = _finalize(raw)
     assert len(out) == 1

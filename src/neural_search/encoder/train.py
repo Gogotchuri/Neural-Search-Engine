@@ -176,7 +176,7 @@ def save_checkpoint(
         },
         path,
     )
-    print(f"  checkpoint saved → {path} (step {step})")
+    print(f"  checkpoint saved -> {path} (step {step})")
 
 
 def load_checkpoint(
