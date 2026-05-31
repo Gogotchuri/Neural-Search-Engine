@@ -1,3 +1,5 @@
+import math
+
 import numpy as np
 import torch
 import torch.nn as nn
@@ -70,8 +72,8 @@ class Encoder(nn.Module):
         Returns:
             (B, hidden_dim) — L2-normalized sentence embeddings
         """
-        # Token embeddings + positional encoding
-        x = self.token_emb(input_ids)         # (B, L, H)
+        # Token embeddings (scaled to match positional encoding magnitude)
+        x = self.token_emb(input_ids) * math.sqrt(self.config.hidden_dim)  # (B, L, H)
         x = self.pos_enc(x)                   # (B, L, H)
         x = self.emb_dropout(x)
 

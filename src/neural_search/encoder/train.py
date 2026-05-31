@@ -25,7 +25,7 @@ def train(
     lr: float = 2e-4,
     weight_decay: float = 0.01,
     warmup_fraction: float = 0.1,
-    max_grad_norm: float = 1.0,
+    max_grad_norm: float = 5.0,
     temperature: float = 0.05,
     checkpoint_dir: str | None = None,
     checkpoint_every: int = 1000,

@@ -8,6 +8,6 @@ class Retriever(ABC):
         """
         Return top-k passages for a query.
 
-        Each result dict contains: chunk_id, text, score, chapter, section.
+        Each result dict contains: id, text, score, chapter, section.
         """
         ...
