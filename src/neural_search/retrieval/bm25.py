@@ -23,7 +23,7 @@ class BM25Retriever(Retriever):
         top_indices = np.argsort(scores)[::-1][:k]
         return [
             {
-                "chunk_id": self._chunks[idx]["chunk_id"],
+                "id": self._chunks[idx]["id"],
                 "text": self._chunks[idx]["text"],
                 "score": float(scores[idx]),
                 "chapter": self._chunks[idx]["chapter"],
