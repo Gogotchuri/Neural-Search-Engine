@@ -82,9 +82,10 @@ class NeuralRetriever(Retriever):
                 "No FAISS index loaded. Call build_index() or provide an existing index file."
             )
 
-        # Encode the query
+        # Encode the query on the same device as the encoder
+        device = next(self._encoder.parameters()).device
         query_emb = self._encoder.encode(
-            [query], self._tokenizer
+            [query], self._tokenizer, device=str(device)
         )  # (1, hidden_dim)
 
         # Search: returns (scores, indices) each of shape (1, k)
