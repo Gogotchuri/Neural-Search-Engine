@@ -31,7 +31,7 @@ def _print_report(chunks, sample=3):
     for chunk in chunks[:sample]:
         preview = textwrap.shorten(chunk["text"], width=280, placeholder=" …")
         print(
-            f"\n  [{chunk['id']}] {chunk['chapter']} §{chunk['section'] or '—'} "
+            f"\n  [{chunk['id']}] {chunk['chapter']} §{chunk['section'] or '-'} "
             f"p{chunk['page_start']}–{chunk['page_end']} ({chunk['n_words']}w)"
         )
         print(textwrap.indent(textwrap.fill(preview, width=96), "    "))

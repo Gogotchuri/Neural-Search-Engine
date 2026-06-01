@@ -24,7 +24,7 @@ def main():
     for rank, result in enumerate(results, 1):
         print(f"\n[{rank}] id={result['id']}  score={result['score']:.3f}")
         print(f"    {result['chapter']} | {result['section']}")
-        print(f"    {result['text'][:200]}...")
+        print(f"    {result['text']}...")
 
 
 if __name__ == "__main__":

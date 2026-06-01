@@ -66,11 +66,11 @@ class Encoder(nn.Module):
     def forward(self, input_ids: Tensor, attention_mask: Tensor) -> Tensor:
         """
         Args:
-            input_ids:      (B, L) — token indices
-            attention_mask: (B, L) — 1 for real tokens, 0 for padding
+            input_ids:      (B, L) - token indices
+            attention_mask: (B, L) - 1 for real tokens, 0 for padding
 
         Returns:
-            (B, hidden_dim) — L2-normalized sentence embeddings
+            (B, hidden_dim) - L2-normalized sentence embeddings
         """
         # Token embeddings (scaled to match positional encoding magnitude)
         x = self.token_emb(input_ids) * math.sqrt(self.config.hidden_dim)  # (B, L, H)

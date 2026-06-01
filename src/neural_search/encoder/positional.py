@@ -15,10 +15,10 @@ class PositionalEncoding(nn.Module):
     def __init__(self, hidden_dim: int, max_len: int = 256):
         super().__init__()
 
-        # pe shape: (1, max_len, hidden_dim) — the leading 1 broadcasts over batch
+        # pe shape: (1, max_len, hidden_dim) - the leading 1 broadcasts over batch
         pe = torch.zeros(1, max_len, hidden_dim)
 
-        # position indices: (max_len, 1) — column vector for broadcasting
+        # position indices: (max_len, 1) - column vector for broadcasting
         position = torch.arange(max_len).unsqueeze(1).float()
 
         # div_term: 10000^(2i/d) computed in log-space
@@ -35,5 +35,5 @@ class PositionalEncoding(nn.Module):
         self.register_buffer("pe", pe)
 
     def forward(self, x: Tensor) -> Tensor:
-        # x: (B, L, hidden_dim) — only take the first L positions
+        # x: (B, L, hidden_dim) - only take the first L positions
         return x + self.pe[:, : x.size(1)]
