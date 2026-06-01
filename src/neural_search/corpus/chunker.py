@@ -64,8 +64,8 @@ def _dedup_key(text: str) -> str:
     return re.sub(r'\s+', ' ', text).strip().lower()
 
 
-# A chunk is a "layout dump" — a figure grid, equation block, count matrix, or chart
-# axis pypdf flattened into the body — when single-character tokens or digits dominate.
+# A chunk is a "layout dump" - a figure grid, equation block, count matrix, or chart
+# axis pypdf flattened into the body - when single-character tokens or digits dominate.
 # Thresholds are deliberately strict: this is an NLP textbook, so ordinary prose that
 # discusses equations (with inline variables like f, w, x) must survive untouched.
 _MAX_ONE_CHAR_FRAC = 0.45   # e.g. "e x e c u t i o n", "x1 x2 0 1"

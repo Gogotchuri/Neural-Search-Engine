@@ -52,7 +52,7 @@ class NeuralRetriever(Retriever):
                 raise ValueError(
                     f"FAISS index '{index_path}' has {self._index.ntotal} vectors but "
                     f"'{chunks_path}' has {len(self._chunks)} chunks. The index is stale "
-                    f"for this corpus — rebuild it with build_index()."
+                    f"for this corpus - rebuild it with build_index()."
                 )
 
     @staticmethod

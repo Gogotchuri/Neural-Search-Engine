@@ -46,11 +46,11 @@ class MultiHeadAttention(nn.Module):
         x has B batches and each of length L. We must have each sequence the same length, so we use paddings.
         To ignore paddings, we have binary valued attention mask, having 0s on the positions of paddings
         Args:
-            x:              (B, L, hidden_dim) — input token representations
-            attention_mask: (B, L) — 1 for real tokens, 0 for padding
+            x:              (B, L, hidden_dim) - input token representations
+            attention_mask: (B, L) - 1 for real tokens, 0 for padding
 
         Returns:
-            (B, L, hidden_dim) — contextualized representations
+            (B, L, hidden_dim) - contextualized representations
         """
         B, L, _ = x.shape
 
@@ -98,7 +98,7 @@ def scaled_dot_product_attention(
         query:   (B, h, L_q, d_h)
         key:     (B, h, L_k, d_h)
         value:   (B, h, L_k, d_h)
-        mask:    (B, 1, 1, L_k) — 1 for real tokens, 0 for padding
+        mask:    (B, 1, 1, L_k) - 1 for real tokens, 0 for padding
         dropout: optional dropout applied to attention weights
 
     Returns:

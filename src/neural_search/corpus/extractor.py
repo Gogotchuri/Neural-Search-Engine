@@ -78,7 +78,7 @@ def _dehyphenate(text: str) -> str:
 # J&M sets a fixed glossary of key terms in a smaller font in the page margin. pypdf
 # appends each margin term to an adjacent body token with no space, producing glue like
 # "systemELIZA", "ortokenization", "Anutterance". This is a *known, finite* list, so we
-# split those terms back out — guarded by the dictionary so we never break a genuine
+# split those terms back out - guarded by the dictionary so we never break a genuine
 # word (e.g. "lemma" inside "dilemma", or compounds that are real words on their own).
 _MARGIN_TERMS = [
     "tokenization", "tokenizing", "ELIZA", "BPE", "disfluency", "fragment",
@@ -140,7 +140,7 @@ def _extract_context_from_header(line: str, current: Dict) -> Dict:
         new_chapter = f"Chapter {chapter_match.group(1)}"
         # The chapter running header repeats on (almost) every page, so only reset the
         # section when the chapter number actually *changes*. Resetting on every header
-        # — the old behavior — wiped the section on every right-hand page, leaving ~45%
+        # - the old behavior - wiped the section on every right-hand page, leaving ~45%
         # of chunks with no section metadata.
         if new_chapter != context["chapter"]:
             context["chapter"] = new_chapter
