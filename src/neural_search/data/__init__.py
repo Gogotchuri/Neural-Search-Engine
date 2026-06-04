@@ -1,11 +1,29 @@
 from .collators import ContrastiveBatchCollator
 from .mlm_collator import MLMBatchCollator
 from .mlm_dataset import MLMTextDataset
-from .msmarco import  MSMARCOPairsDataset
+from .hard_negatives import (
+    BM25HardNegativeMiner,
+    MinedHardNegativeDataset,
+    write_msmarco_bm25_corpus,
+)
+from .msmarco import (
+    MSMARCOPairsDataset,
+    write_msmarco_positive_pairs,
+)
+
+from .jsonl import ContrastiveJSONLDataset
 
 __all__ = [
     "ContrastiveBatchCollator",
     "MLMBatchCollator",
     "MLMTextDataset",
     "MSMARCOPairsDataset",
+    "BM25HardNegativeMiner",
+    "MinedHardNegativeDataset",
+    "write_msmarco_bm25_corpus",
+    "ContrastiveJSONLDataset",
+    "write_msmarco_positive_pairs",
 ]
+
+
+MinedHardNegativeDataset = ContrastiveJSONLDataset
