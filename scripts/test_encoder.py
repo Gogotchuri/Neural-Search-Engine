@@ -60,7 +60,7 @@ def test_encoder():
         f"norms = {norms.tolist()}",
     )
 
-    # Test 3: identical input with different padding → same embedding
+    # Test 3: identical input with different padding -> same embedding
     # Create two copies of the same tokens, one padded to 32, one to 48
     tokens = torch.randint(1, config.vocab_size, (1, 20))
 
@@ -79,7 +79,7 @@ def test_encoder():
 
     pad_diff = (emb_short - emb_long).abs().max().item()
     check(
-        "Same input + different padding → identical embedding",
+        "Same input + different padding -> identical embedding",
         torch.allclose(emb_short, emb_long, atol=1e-5),
         f"max diff = {pad_diff:.2e}",
     )

@@ -148,7 +148,7 @@ def train(
                 )
 
         avg_loss = epoch_loss / max(n_batches, 1)
-        print(f"Epoch {epoch + 1}/{epochs} — avg loss: {avg_loss:.4f}")
+        print(f"Epoch {epoch + 1}/{epochs} - avg loss: {avg_loss:.4f}")
 
     # Final checkpoint
     if checkpoint_dir is not None:
@@ -176,7 +176,7 @@ def save_checkpoint(
         },
         path,
     )
-    print(f"  checkpoint saved → {path} (step {step})")
+    print(f"  checkpoint saved -> {path} (step {step})")
 
 
 def load_checkpoint(
@@ -197,7 +197,15 @@ def load_checkpoint(
         The global step number at which the checkpoint was saved.
     """
     checkpoint = torch.load(path, weights_only=False)
-    encoder.load_state_dict(checkpoint["model_state_dict"])
+
+    # Support both contrastive checkpoints ("model_state_dict")
+    # and pretrain checkpoints ("encoder_state_dict")
+    if "model_state_dict" in checkpoint:
+        encoder.load_state_dict(checkpoint["model_state_dict"])
+    elif "encoder_state_dict" in checkpoint:
+        encoder.load_state_dict(checkpoint["encoder_state_dict"])
+    else:
+        raise KeyError(f"Checkpoint has neither 'model_state_dict' nor 'encoder_state_dict'")
 
     if optimizer is not None and "optimizer_state_dict" in checkpoint:
         optimizer.load_state_dict(checkpoint["optimizer_state_dict"])

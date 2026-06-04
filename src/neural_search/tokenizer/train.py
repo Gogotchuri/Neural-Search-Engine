@@ -72,5 +72,5 @@ def train_tokenizer(chunks_path: str, output_path: str, n_msmarco: int = 100_000
 
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
     tokenizer.save(output_path)
-    print(f"Tokenizer saved → {output_path}")
+    print(f"Tokenizer saved -> {output_path}")
     return tokenizer

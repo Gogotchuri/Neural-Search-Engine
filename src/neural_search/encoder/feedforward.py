@@ -21,5 +21,5 @@ class FeedForward(nn.Module):
         self.dropout = nn.Dropout(dropout)
 
     def forward(self, x: Tensor) -> Tensor:
-        # (B, L, hidden_dim) → (B, L, ffn_dim) → (B, L, hidden_dim)
+        # (B, L, hidden_dim) -> (B, L, ffn_dim) -> (B, L, hidden_dim)
         return self.dropout(self.fc2(self.act(self.fc1(x))))
