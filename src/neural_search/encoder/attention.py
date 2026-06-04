@@ -46,11 +46,11 @@ class MultiHeadAttention(nn.Module):
         x has B batches and each of length L. We must have each sequence the same length, so we use paddings.
         To ignore paddings, we have binary valued attention mask, having 0s on the positions of paddings
         Args:
-            x:              (B, L, hidden_dim) — input token representations
-            attention_mask: (B, L) — 1 for real tokens, 0 for padding
+            x:              (B, L, hidden_dim) - input token representations
+            attention_mask: (B, L) - 1 for real tokens, 0 for padding
 
         Returns:
-            (B, L, hidden_dim) — contextualized representations
+            (B, L, hidden_dim) - contextualized representations
         """
         B, L, _ = x.shape
 
@@ -77,7 +77,7 @@ class MultiHeadAttention(nn.Module):
         self._attn_weights = attn_weights.detach()
 
         # Concatenate heads and apply output projection, returns in the primary form
-        # (B, num_heads, L, d_h) → (B, L, num_heads, d_h) → (B, L, hidden_dim)
+        # (B, num_heads, L, d_h) -> (B, L, num_heads, d_h) -> (B, L, hidden_dim)
         context = context.transpose(1, 2).contiguous().view(B, L, self.hidden_dim)
 
         return self.W_o(context)
@@ -98,7 +98,7 @@ def scaled_dot_product_attention(
         query:   (B, h, L_q, d_h)
         key:     (B, h, L_k, d_h)
         value:   (B, h, L_k, d_h)
-        mask:    (B, 1, 1, L_k) — 1 for real tokens, 0 for padding
+        mask:    (B, 1, 1, L_k) - 1 for real tokens, 0 for padding
         dropout: optional dropout applied to attention weights
 
     Returns:
@@ -112,7 +112,7 @@ def scaled_dot_product_attention(
     # and applying the dimension matchin rules to the last two dimensions.
     # Hence, to multiply [Q](L_q, d_h) @ [K](L_k, d_h), we need to transponse K on the last 2 dimensions
     # The final multiplication dimension will be:
-    # (B, h, L_q, d_h) @ (B, h, d_h, L_k) → (B, h, L_q, L_k)
+    # (B, h, L_q, d_h) @ (B, h, d_h, L_k) -> (B, h, L_q, L_k)
     # And we normalize the whole thing by the square root of dimensions per head
     scores = torch.matmul(query, key.transpose(-2, -1)) / math.sqrt(d_h)
 
@@ -125,7 +125,7 @@ def scaled_dot_product_attention(
     if dropout is not None:
         attn_weights = dropout(attn_weights)
 
-    # (B, h, L_q, L_k) @ (B, h, L_k, d_h) → (B, h, L_q, d_h)
+    # (B, h, L_q, L_k) @ (B, h, L_k, d_h) -> (B, h, L_q, d_h)
     context = torch.matmul(attn_weights, value)
 
     return context, attn_weights
