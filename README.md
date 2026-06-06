@@ -54,13 +54,25 @@ uv run evaluate-retrievers
 uv run evaluate-retrievers --checkpoint checkpoints/encoder.pt --json results.json
 ```
 
-The eval set (`data/eval_set.json`) is a JSON list of `{"query", "relevant_ids"}`, where
-`relevant_ids` reference chunks by their stable string `id` (e.g. `ch9-0042`). The
-harness validates every id against `chunks.jsonl` and fails loudly on a typo or stale id.
+The eval set (`data/eval_set.json`) is a JSON list of `{"query", "relevant_ids", "category"}`,
+where `relevant_ids` reference chunks by their stable string `id` (e.g. `ch9-0042`). The
+harness validates every id against `chunks.jsonl` and fails loudly on a typo or stale id
+(the `category` field is ignored by the harness — see below).
 
-> **`data/eval_set.json` is a 12-query *starter* set** derived from BM25 hits and spot-checked,
-> not the final hand-verified benchmark. Per the project plan, verify each label and grow it
-> to ~75–100 queries before reporting results.
+> **`data/eval_set.json` holds 111 hand-verified queries spanning all 24 chapters.** Every
+> label was checked by reading the cited chunk text to confirm it self-containedly answers the
+> query. Each entry carries a `category`:
+> - **`normal`** (79 queries) — natural questions with at least one relevant chunk that BM25
+>   ranks in the top 10 (positive-coverage items).
+> - **`bm25_hard`** (32 queries) — simple, realistic paraphrase/synonym queries where the
+>   correct chunk uses different vocabulary, so BM25 ranks *every* relevant id **below** the
+>   top 10. These isolate the vocabulary-mismatch cases a semantic retriever should win.
+>
+> On the current set BM25 scores Recall@10 ≈ 0.65 overall (0.98 on `normal`, 0.00 on
+> `bm25_hard` by construction), leaving clear headroom to demonstrate the neural encoder.
+>
+> Tooling for growing/auditing the set lives in `scripts/eval_helper.py` (`search`, `show`,
+> `rank`, `dump-chapter`, `verify` subcommands over `chunks.jsonl`).
 
 ## Using on Kaggle
 
