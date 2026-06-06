@@ -105,8 +105,21 @@ def train(
             query_emb = encoder(query_ids, query_mask)  # (B, H)
             positive_emb = encoder(positive_ids, positive_mask)         # (B, H)
 
-            # Loss: InfoNCE with in-batch negatives
-            loss = infonce_loss(query_emb, positive_emb, temperature=temperature)
+            # Explicit hard negatives are only present when the dataset provides
+            # them; otherwise InfoNCE falls back to in-batch negatives alone.
+            hard_negative_emb = None
+            if "neg_input_ids" in batch:
+                hard_negative_ids = batch["neg_input_ids"].to(device)
+                hard_negative_mask = batch["neg_attention_mask"].to(device).float()
+                hard_negative_emb = encoder(hard_negative_ids, hard_negative_mask)
+
+            # Loss: InfoNCE with in-batch (and optional hard) negatives
+            loss = infonce_loss(
+                query_emb,
+                positive_emb,
+                negative_embeddings=hard_negative_emb,
+                temperature=temperature,
+            )
 
             # Backward
             optimizer.zero_grad()
