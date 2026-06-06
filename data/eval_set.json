@@ -1,0 +1,14 @@
+[
+  {"query": "what is beam search", "relevant_ids": ["ch12-0639", "ch12-0640"]},
+  {"query": "how is the BLEU score computed for machine translation", "relevant_ids": ["ch12-0658", "ch12-0659"]},
+  {"query": "the Viterbi algorithm for hidden Markov models", "relevant_ids": ["ch17-0942", "ch17-0936"]},
+  {"query": "what is the perplexity of a language model", "relevant_ids": ["ch3-0114", "ch3-0115", "ch3-0116"]},
+  {"query": "minimum edit distance between two strings", "relevant_ids": ["ch2-0076", "ch2-0083"]},
+  {"query": "how does binary logistic regression work", "relevant_ids": ["ch4-0196"]},
+  {"query": "byte pair encoding for subword tokenization", "relevant_ids": ["ch2-0002"]},
+  {"query": "skip-gram word2vec word embeddings", "relevant_ids": ["ch5-0256", "ch5-0281"]},
+  {"query": "precision recall and F1 score for classification", "relevant_ids": ["ch4-0203", "ch4-0201"]},
+  {"query": "self-attention in the transformer architecture", "relevant_ids": ["ch8-0428", "ch9-0480"]},
+  {"query": "part of speech tagging as a disambiguation task", "relevant_ids": ["ch17-0928", "ch17-0930"]},
+  {"query": "what is a confusion matrix", "relevant_ids": ["ch4-0200"]}
+]

@@ -35,9 +35,32 @@ uv run python scripts/build_index.py --checkpoint checkpoints/encoder.pt
 # 7. Search
 uv run python scripts/search_neural.py "hidden markov models" --checkpoint checkpoints/encoder.pt
 uv run python scripts/bm25_search.py "hidden markov models"  # BM25 baseline
+
+# 6. Evaluate: BM25 vs untrained vs trained encoder
+uv run evaluate-retrievers --checkpoint checkpoints/encoder.pt
 ```
 
 **Encoder:** 6-layer pre-norm transformer, 384-dim, 6 heads, ~20M params. Produces L2-normalized embeddings; cosine similarity = dot product via FAISS `IndexFlatIP`.
+
+## Evaluation
+
+The harness scores any `Retriever` on a labelled eval set and prints a comparison table of **Recall@1/5/10**, **MRR@10**, and **nDCG@10** (see `src/neural_search/evaluation/`).
+
+```bash
+# BM25 only (no model needed)
+uv run evaluate-retrievers
+
+# BM25 vs untrained encoder vs trained encoder + write JSON
+uv run evaluate-retrievers --checkpoint checkpoints/encoder.pt --json results.json
+```
+
+The eval set (`data/eval_set.json`) is a JSON list of `{"query", "relevant_ids"}`, where
+`relevant_ids` reference chunks by their stable string `id` (e.g. `ch9-0042`). The
+harness validates every id against `chunks.jsonl` and fails loudly on a typo or stale id.
+
+> **`data/eval_set.json` is a 12-query *starter* set** derived from BM25 hits and spot-checked,
+> not the final hand-verified benchmark. Per the project plan, verify each label and grow it
+> to ~75–100 queries before reporting results.
 
 ## Using on Kaggle
 
