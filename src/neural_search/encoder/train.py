@@ -209,7 +209,9 @@ def load_checkpoint(
     Returns:
         The global step number at which the checkpoint was saved.
     """
-    checkpoint = torch.load(path, weights_only=False)
+    # Map to CPU so a CUDA-saved checkpoint loads on a CPU-only machine; callers
+    # move the encoder to the target device afterwards.
+    checkpoint = torch.load(path, map_location="cpu", weights_only=False)
 
     # Support both contrastive checkpoints ("model_state_dict")
     # and pretrain checkpoints ("encoder_state_dict")

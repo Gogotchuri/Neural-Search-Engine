@@ -36,7 +36,7 @@ uv run python scripts/build_index.py --checkpoint checkpoints/encoder.pt
 uv run python scripts/search_neural.py "hidden markov models" --checkpoint checkpoints/encoder.pt
 uv run python scripts/bm25_search.py "hidden markov models"  # BM25 baseline
 
-# 6. Evaluate: BM25 vs untrained vs trained encoder
+# 8. Evaluate: BM25 vs untrained vs trained encoder
 uv run evaluate-retrievers --checkpoint checkpoints/encoder.pt
 ```
 

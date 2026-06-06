@@ -5,7 +5,7 @@ Usage:
     python scripts/evaluate.py --checkpoint checkpoints/encoder.pt
 """
 
-from neural_search.cli.evaluate import main
+from neural_search.cli.evaluate_retrievers import main
 
 if __name__ == "__main__":
     main()
