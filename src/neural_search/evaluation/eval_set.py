@@ -19,10 +19,15 @@ from pathlib import Path
 
 @dataclass(frozen=True)
 class EvalQuery:
-    """One labelled query: the text and the set of relevant chunk ids."""
+    """One labelled query: the text, the set of relevant chunk ids, and a category.
+
+    ``category`` groups queries for per-bucket scoring (e.g. "normal" vs
+    "bm25_hard"). It defaults to "all" when the eval file omits it.
+    """
 
     query: str
     relevant_ids: tuple[str, ...]
+    category: str = "all"
 
 
 def load_corpus_ids(chunks_path: str | Path) -> set[str]:
@@ -77,7 +82,17 @@ def load_eval_set(
         if not relevant_ids:
             raise ValueError(f"Entry {index} ('{query}'): 'relevant_ids' must be non-empty")
 
-        queries.append(EvalQuery(query=query, relevant_ids=tuple(relevant_ids)))
+        category = entry.get("category", "all")
+        if not isinstance(category, str) or not category.strip():
+            raise ValueError(f"Entry {index} ('{query}'): 'category' must be a non-empty string")
+
+        queries.append(
+            EvalQuery(
+                query=query,
+                relevant_ids=tuple(relevant_ids),
+                category=category.strip(),
+            )
+        )
 
     if corpus_ids is not None:
         known = set(corpus_ids)

@@ -79,6 +79,30 @@ def compare(
     }
 
 
+def compare_by_category(
+    retrievers: dict[str, _Retriever],
+    eval_set: Sequence[EvalQuery],
+    *,
+    recall_ks: Sequence[int] = DEFAULT_RECALL_KS,
+    rank_k: int = DEFAULT_RANK_K,
+) -> dict[str, dict[str, dict[str, float]]]:
+    """Compare retrievers overall and within each query category.
+
+    Returns a mapping ``bucket -> compare()-result``, where ``bucket`` is "all"
+    plus every distinct ``EvalQuery.category`` present, in first-seen order with
+    "all" first. When the eval file has no categories, every query lands in the
+    default "all" category, so the result is just {"all": ...} -- one table.
+    """
+    buckets: dict[str, list[EvalQuery]] = {"all": list(eval_set)}
+    for item in eval_set:
+        buckets.setdefault(item.category, []).append(item)
+
+    return {
+        bucket: compare(retrievers, queries, recall_ks=recall_ks, rank_k=rank_k)
+        for bucket, queries in buckets.items()
+    }
+
+
 def format_table(results: dict[str, dict[str, float]]) -> str:
     """Render a ``compare`` result as a fixed-width table, best per column marked ``*``."""
     if not results:

@@ -15,7 +15,7 @@ import tempfile
 from pathlib import Path
 
 from neural_search.evaluation import (
-    compare,
+    compare_by_category,
     format_table,
     load_corpus_ids,
     load_eval_set,
@@ -98,14 +98,21 @@ def main():
     else:
         print("No --checkpoint given, so we'll just score the BM25 baseline.")
 
-    results = compare(retrievers, eval_set)
+    by_category = compare_by_category(retrievers, eval_set)
 
-    print(f"\nResults over {len(eval_set)} queries\n{'=' * 60}")
-    print(format_table(results))
-    print(f"{'=' * 60}\n(* marks the best score in each column)")
+    # Count queries per bucket for the table headers.
+    bucket_counts = {"all": len(eval_set)}
+    for item in eval_set:
+        bucket_counts[item.category] = bucket_counts.get(item.category, 0) + 1
+
+    for bucket, results in by_category.items():
+        n = bucket_counts.get(bucket, 0)
+        print(f"\n[{bucket}] Results over {n} queries\n{'=' * 60}")
+        print(format_table(results))
+        print(f"{'=' * 60}\n(* marks the best score in each column)")
 
     if args.json:
-        Path(args.json).write_text(json.dumps(results, indent=2), encoding="utf-8")
+        Path(args.json).write_text(json.dumps(by_category, indent=2), encoding="utf-8")
         print(f"\nSaved the full numbers to {args.json}")
 
 
