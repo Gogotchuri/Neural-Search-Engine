@@ -8,7 +8,11 @@ import argparse
 
 from torch.utils.data import DataLoader
 
-from neural_search.data import ContrastiveBatchCollator, MSMARCOPairsDataset
+from neural_search.data import (
+    ContrastiveBatchCollator,
+    ContrastiveJSONLDataset,
+    MSMARCOPairsDataset,
+)
 from neural_search.encoder.config import EncoderConfig
 from neural_search.encoder.encoder import Encoder
 from neural_search.encoder.train import load_checkpoint, train
@@ -42,15 +46,40 @@ def main():
         default=None,
         help="Limit dataset size for fast iteration",
     )
+    parser.add_argument(
+        "--dataset",
+        choices=["msmarco", "hard-negatives"],
+        default="msmarco",
+        help=(
+            "Training data source: 'msmarco' streams query-positive pairs "
+            "(in-batch negatives only), 'hard-negatives' loads a cached JSONL "
+            "with mined hard negatives."
+        ),
+    )
+    parser.add_argument(
+        "--hard-negatives-path",
+        default="data/cache/msmarco_hard_negatives.jsonl",
+        help="Path to the mined hard-negatives JSONL (used when --dataset=hard-negatives)",
+    )
     args = parser.parse_args()
 
-    # Dataset: MS MARCO query-positive passage pairs
-    print("Loading MS MARCO dataset...")
-    dataset = MSMARCOPairsDataset(
-        split="train",
-        max_examples=args.max_examples,
-        shuffle=True,
-    )
+    # Dataset: select between streamed MS MARCO pairs and cached hard negatives
+    if args.dataset == "hard-negatives":
+        print(f"Loading hard-negative dataset from {args.hard_negatives_path}...")
+        dataset = ContrastiveJSONLDataset(
+            path=args.hard_negatives_path,
+            require_hard_negatives=True,
+            max_examples=args.max_examples,
+            shuffle=True,
+        )
+    else:
+        print("Loading MS MARCO dataset...")
+        dataset = MSMARCOPairsDataset(
+            split="train",
+            max_examples=args.max_examples,
+            shuffle=True,
+        )
+
     print(f"  {len(dataset)} training pairs loaded")
 
     # Collator: tokenizes and pads queries (max 64) and passages (max 256)

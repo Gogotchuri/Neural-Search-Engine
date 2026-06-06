@@ -55,6 +55,7 @@ def write_msmarco_bm25_corpus(
 
                 record = {
                     "chunk_id": written,
+                    "id": written,
                     "text": passage,
                     "chapter": "MS MARCO",
                     "section": "candidate-passages",
