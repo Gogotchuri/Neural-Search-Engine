@@ -29,6 +29,7 @@ cache-msmarco-pairs = "neural_search.cli.cache_msmarco_pairs:main"
 check-data-pipeline = "neural_search.cli.dataset_collators:main"
 mine-hard-negatives = "neural_search.cli.mine_hard_negatives:main"
 check-loss-pe = "neural_search.cli.loss_pe:main"
+slice-hard-negatives = "neural_search.cli.slice_hard_negatives:main"
 
 [build-system]
 requires = ["hatchling"]
