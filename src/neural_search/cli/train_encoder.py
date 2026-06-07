@@ -36,6 +36,19 @@ def main():
     parser.add_argument("--log-every", type=int, default=100)
     parser.add_argument("--max-grad-norm", type=float, default=5.0)
     parser.add_argument(
+        "--query-max-length",
+        type=int,
+        default=64,
+        help="Max tokens per query (truncation + padding)",
+    )
+    parser.add_argument(
+        "--passage-max-length",
+        type=int,
+        default=256,
+        help="Max tokens per passage (truncation + padding). Lower it (e.g. 96) "
+        "to match a short-chunk corpus and avoid over-padding short passages.",
+    )
+    parser.add_argument(
         "--resume",
         default=None,
         help="Path to checkpoint to load model weights from (fresh optimizer/scheduler)",
@@ -82,11 +95,15 @@ def main():
 
     print(f"  {len(dataset)} training pairs loaded")
 
-    # Collator: tokenizes and pads queries (max 64) and passages (max 256)
+    # Collator: tokenizes and pads queries and passages to the given max lengths
     collator = ContrastiveBatchCollator(
         tokenizer_path=args.tokenizer,
-        query_max_length=64,
-        passage_max_length=256,
+        query_max_length=args.query_max_length,
+        passage_max_length=args.passage_max_length,
+    )
+    print(
+        f"  Sequence lengths: query={args.query_max_length}, "
+        f"passage={args.passage_max_length}"
     )
 
     # DataLoader: batches with shuffling for diverse in-batch negatives
