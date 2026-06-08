@@ -245,7 +245,7 @@ def load_pretrain_checkpoint(
     If only encoder is provided, loads just the encoder weights
     (for transitioning to contrastive fine-tuning).
     """
-    checkpoint = torch.load(path, weights_only=False)
+    checkpoint = torch.load(path, map_location="cpu", weights_only=False)
     encoder.load_state_dict(checkpoint["encoder_state_dict"])
 
     if mlm_head is not None and "mlm_head_state_dict" in checkpoint:

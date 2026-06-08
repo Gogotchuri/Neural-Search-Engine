@@ -63,14 +63,17 @@ class Encoder(nn.Module):
                 if module.padding_idx is not None:
                     nn.init.zeros_(module.weight[module.padding_idx])
 
-    def forward(self, input_ids: Tensor, attention_mask: Tensor) -> Tensor:
-        """
+    def encode_tokens(self, input_ids: Tensor, attention_mask: Tensor) -> Tensor:
+        """Run the backbone and return per-token hidden states (before pooling).
+
         Args:
             input_ids:      (B, L) - token indices
             attention_mask: (B, L) - 1 for real tokens, 0 for padding
 
         Returns:
-            (B, hidden_dim) - L2-normalized sentence embeddings
+            (B, L, hidden_dim) - contextualized hidden states after final_norm.
+            Used by the MLM head during pretraining; ``forward`` pools these into
+            a single sentence embedding.
         """
         # Token embeddings (scaled to match positional encoding magnitude)
         x = self.token_emb(input_ids) * math.sqrt(self.config.hidden_dim)  # (B, L, H)
@@ -81,7 +84,19 @@ class Encoder(nn.Module):
         for block in self.blocks:
             x = block(x, attention_mask)       # (B, L, H)
 
-        x = self.final_norm(x)                # (B, L, H)
+        return self.final_norm(x)             # (B, L, H)
+
+    def forward(self, input_ids: Tensor, attention_mask: Tensor) -> Tensor:
+        """
+        Args:
+            input_ids:      (B, L) - token indices
+            attention_mask: (B, L) - 1 for real tokens, 0 for padding
+
+        Returns:
+            (B, hidden_dim) - L2-normalized sentence embeddings
+        """
+        x = self.encode_tokens(input_ids, attention_mask)  # (B, L, H)
+
         # https://ar5iv.labs.arxiv.org/html/1908.10084 (SBert)
         # The paper demonstrates that the mean pooling layer is better than the other pooling alternatives
         # Masked mean pooling: average only over real (non-padding) tokens
