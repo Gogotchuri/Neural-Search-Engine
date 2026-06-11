@@ -19,8 +19,7 @@ _SENT_SPLIT = re.compile(r"(?<=[.!?])\s+")
 # and a space-separated ``categories`` string (e.g. "cs.LG stat.ML").
 DEFAULT_ARXIV_DATASET = "gfissore/arxiv-abstracts-2021"
 # Keep papers whose category list contains any token with one of these
-# prefixes. ``"cs."`` / ``"stat."`` => computer science + statistics.
-DEFAULT_ARXIV_CATEGORIES = ("cs.", "stat.")
+DEFAULT_ARXIV_CATEGORIES = ("cs.", "stat.", "math.")
 
 
 class MLMTextDataset(Dataset):
