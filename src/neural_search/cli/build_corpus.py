@@ -41,10 +41,24 @@ def main():
     parser = argparse.ArgumentParser(description="Extract and chunk the J&M PDF")
     parser.add_argument("pdf_path", help="Path to the J&M PDF")
     parser.add_argument("--output", default="data/chunks.jsonl")
+    parser.add_argument(
+        "--chunk-words",
+        type=int,
+        default=64,
+        help="Target words per passage. min/max/overlap are derived from it.",
+    )
     args = parser.parse_args()
 
+    # Derive the four chunker knobs from a single target size.
+    cw = args.chunk_words
     pages = extract_book(args.pdf_path)
-    chunks = chunk_pages(pages)
+    chunks = chunk_pages(
+        pages,
+        min_words=cw,
+        max_words=round(cw * 1.25),
+        overlap_words=round(cw * 0.2),
+        min_chunk_words=round(cw * 0.4),
+    )
 
     _print_report(chunks)
     save_chunks(chunks, args.output)
