@@ -4,6 +4,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
+import time
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
@@ -13,6 +14,16 @@ from neural_search.data import (
     write_msmarco_bm25_corpus,
 )
 
+def format_seconds(seconds: float) -> str:
+    seconds = int(seconds)
+    hours, remainder = divmod(seconds, 3600)
+    minutes, seconds = divmod(remainder, 60)
+
+    if hours:
+        return f"{hours}h {minutes}m {seconds}s"
+    if minutes:
+        return f"{minutes}m {seconds}s"
+    return f"{seconds}s"
 
 def main() -> None:
     parser = argparse.ArgumentParser(
@@ -32,6 +43,11 @@ def main() -> None:
         "--output",
         default="data/cache/msmarco_hard_negatives.jsonl",
     )
+    parser.add_argument("--rank-start", type=int, default=0)
+    parser.add_argument("--rank-end", type=int, default=None)
+    parser.add_argument("--shuffle-corpus", action="store_true")
+    parser.add_argument("--shuffle-buffer-size", type=int, default=10_000)
+    parser.add_argument("--progress-every", type=int, default=100)
     args = parser.parse_args()
 
     print("Loading query-positive examples...")
@@ -52,6 +68,9 @@ def main() -> None:
         split="train",
         max_rows=args.max_corpus_rows,
         streaming=True,
+        shuffle=args.shuffle_corpus,
+        seed=args.seed,
+        shuffle_buffer_size=args.shuffle_buffer_size,
     )
 
     print(f"Wrote {corpus_size} unique candidate passages to {args.corpus_output}.")
@@ -68,29 +87,49 @@ def main() -> None:
     kept = 0
     skipped = 0
 
+    total = len(dataset)
+    start_time = time.time()
+
     print("Mining hard negatives...")
     with open(output_path, "w", encoding="utf-8") as out_file:
-        for example in dataset:
+        for index, example in enumerate(dataset, start=1):
             negatives = miner.mine(
                 query=example["query"],
                 known_positive_passages=example["known_positive_passages"],
                 num_negatives=args.num_negatives,
                 min_score=args.min_score,
+                rank_start=args.rank_start,
+                rank_end=args.rank_end,
             )
 
             if len(negatives) < args.num_negatives:
                 skipped += 1
-                continue
+            else:
+                record = {
+                    "query": example["query"],
+                    "positive_passage": example["positive_passage"],
+                    "hard_negatives": [negative["text"] for negative in negatives],
+                    "hard_negative_scores": [negative["score"] for negative in negatives],
+                }
 
-            record = {
-                "query": example["query"],
-                "positive_passage": example["positive_passage"],
-                "hard_negatives": [negative["text"] for negative in negatives],
-                "hard_negative_scores": [negative["score"] for negative in negatives],
-            }
+                out_file.write(json.dumps(record, ensure_ascii=False) + "\n")
+                kept += 1
 
-            out_file.write(json.dumps(record, ensure_ascii=False) + "\n")
-            kept += 1
+            if index % args.progress_every == 0 or index == total:
+                elapsed = time.time() - start_time
+                examples_per_second = index / max(elapsed, 1e-8)
+                remaining = total - index
+                eta_seconds = remaining / max(examples_per_second, 1e-8)
+
+                print(
+                    f"  processed {index:,}/{total:,} "
+                    f"({index / total:.1%}) | "
+                    f"kept {kept:,} | skipped {skipped:,} | "
+                    f"{examples_per_second:.2f} examples/s | "
+                    f"elapsed {format_seconds(elapsed)} | "
+                    f"eta {format_seconds(eta_seconds)}",
+                    flush=True,
+                )
 
     print(f"Wrote {kept} mined examples to {output_path}.")
     print(f"Skipped {skipped} examples with too few hard negatives.")

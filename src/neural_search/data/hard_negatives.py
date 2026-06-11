@@ -22,6 +22,9 @@ def write_msmarco_bm25_corpus(
     max_rows: int | None = None,
     streaming: bool = True,
     cache_dir: str | None = None,
+    shuffle: bool = False,
+    seed: int = 42,
+    shuffle_buffer_size: int = 10_000,
 ) -> int:
     """
     Write all candidate MS MARCO passages to a BM25-compatible JSONL corpus.
@@ -42,6 +45,9 @@ def write_msmarco_bm25_corpus(
             config_name=config_name,
             streaming=streaming,
             cache_dir=cache_dir,
+            shuffle=shuffle,
+            seed=seed,
+            shuffle_buffer_size=shuffle_buffer_size,
         ):
             all_passages, _ = extract_msmarco_passages(row)
 
@@ -54,8 +60,8 @@ def write_msmarco_bm25_corpus(
                 seen_passages.add(normalized)
 
                 record = {
+                    "id": f"msmarco-{written}",
                     "chunk_id": written,
-                    "id": written,
                     "text": passage,
                     "chapter": "MS MARCO",
                     "section": "candidate-passages",
@@ -90,9 +96,20 @@ class BM25HardNegativeMiner:
         known_positive_passages: list[str],
         num_negatives: int = 1,
         min_score: float | None = None,
+        rank_start: int = 0,
+        rank_end: int | None = None,
     ) -> list[dict[str, Any]]:
         if num_negatives <= 0:
             raise ValueError(f"num_negatives must be positive, got {num_negatives}")
+        
+        if rank_start < 0:
+            raise ValueError(f"rank_start must be non-negative, got {rank_start}")
+
+        if rank_end is not None and rank_end <= rank_start:
+            raise ValueError(
+                f"rank_end must be greater than rank_start, got rank_start={rank_start}, "
+                f"rank_end={rank_end}"
+            )
 
         known_positive = {normalize_text(text) for text in known_positive_passages}
         seen = set(known_positive)
@@ -117,10 +134,10 @@ class BM25HardNegativeMiner:
             seen.add(candidate_normalized)
             negatives.append(result)
 
-            if len(negatives) >= num_negatives:
-                break
+        negatives_window = negatives[rank_start:rank_end]
 
-        return negatives
+
+        return negatives_window[:num_negatives]
 
 
 class MinedHardNegativeDataset(Dataset):

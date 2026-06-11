@@ -57,6 +57,9 @@ def iter_msmarco_rows(
     config_name: str = "v1.1",
     streaming: bool = True,
     cache_dir: str | None = None,
+    shuffle: bool = False,
+    seed: int = 42,
+    shuffle_buffer_size: int = 10_000,
 ) -> Iterator[dict[str, Any]]:
     """Yield rows from MS MARCO."""
     try:
@@ -75,6 +78,15 @@ def iter_msmarco_rows(
         cache_dir=cache_dir,
     )
 
+    if shuffle:
+        if streaming:
+            dataset = dataset.shuffle(
+                seed=seed,
+                buffer_size=shuffle_buffer_size,
+            )
+        else:
+            dataset = dataset.shuffle(seed=seed)
+
     yield from dataset
 
 
@@ -87,6 +99,7 @@ def collect_msmarco_positive_examples(
     streaming: bool = True,
     cache_dir: str | None = None,
     include_known_positive_passages: bool = False,
+    shuffle_buffer_size: int = 10_000,
 ) -> list[dict[str, Any]]:
     """
     Collect MS MARCO query-positive examples.
@@ -102,6 +115,9 @@ def collect_msmarco_positive_examples(
         config_name=config_name,
         streaming=streaming,
         cache_dir=cache_dir,
+        shuffle=shuffle,
+        seed=seed,
+        shuffle_buffer_size=shuffle_buffer_size,
     ):
         query = clean_text(row.get("query", ""))
         if not query:
