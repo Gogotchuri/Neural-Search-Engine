@@ -7,7 +7,7 @@ Each source can be toggled independently, e.g.:
 
 Staged / domain-adaptive pretraining (general -> domain):
     # stage 1: general English, 3 epochs
-    pretrain-encoder --no-arxiv --epochs 3
+    pretrain-encoder --epochs 3
     # stage 2: continue on cs/stat arXiv from the stage-1 checkpoint
     pretrain-encoder --no-wiki --no-book --arxiv --resume checkpoints/pretrain.pt
 
