@@ -11,7 +11,7 @@ from .msmarco import (
     write_msmarco_positive_pairs,
 )
 
-from .jsonl import ContrastiveJSONLDataset
+from .jsonl import ContrastiveJSONLDataset, load_combined_hard_negatives
 
 __all__ = [
     "ContrastiveBatchCollator",
@@ -22,6 +22,7 @@ __all__ = [
     "MinedHardNegativeDataset",
     "write_msmarco_bm25_corpus",
     "ContrastiveJSONLDataset",
+    "load_combined_hard_negatives",
     "write_msmarco_positive_pairs",
 ]
 

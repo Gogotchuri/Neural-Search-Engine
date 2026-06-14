@@ -10,8 +10,8 @@ from torch.utils.data import DataLoader
 
 from neural_search.data import (
     ContrastiveBatchCollator,
-    ContrastiveJSONLDataset,
     MSMARCOPairsDataset,
+    load_combined_hard_negatives,
 )
 from neural_search.encoder.config import EncoderConfig
 from neural_search.encoder.encoder import Encoder
@@ -72,16 +72,26 @@ def main():
     parser.add_argument(
         "--hard-negatives-path",
         default="data/cache/msmarco_hard_negatives.jsonl",
-        help="Path to the mined hard-negatives JSONL (used when --dataset=hard-negatives)",
+        help="Comma-separated mined hard-negatives JSONL paths (used when "
+        "--dataset=hard-negatives). Multiple files are concatenated, e.g. "
+        "data/cache/msmarco_hard_negatives.jsonl,data/cache/book_hard_negatives.jsonl",
+    )
+    parser.add_argument(
+        "--hard-negatives-upsample",
+        default=None,
+        help="Comma-separated per-file integer upsample factors matching "
+        "--hard-negatives-path (default 1 each), e.g. '1,3' to weight the book "
+        "set 3x against MS MARCO. All files must share the same mined negative "
+        "count (collator requires a uniform count per batch).",
     )
     args = parser.parse_args()
 
     # Dataset: select between streamed MS MARCO pairs and cached hard negatives
     if args.dataset == "hard-negatives":
-        print(f"Loading hard-negative dataset from {args.hard_negatives_path}...")
-        dataset = ContrastiveJSONLDataset(
-            path=args.hard_negatives_path,
-            require_hard_negatives=True,
+        print(f"Loading hard-negative dataset(s) from {args.hard_negatives_path}...")
+        dataset = load_combined_hard_negatives(
+            paths=args.hard_negatives_path,
+            upsample=args.hard_negatives_upsample,
             max_examples=args.max_examples,
             shuffle=True,
         )

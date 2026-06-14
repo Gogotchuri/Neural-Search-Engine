@@ -5,7 +5,7 @@ import random
 from pathlib import Path
 from typing import Any
 
-from torch.utils.data import Dataset
+from torch.utils.data import ConcatDataset, Dataset
 
 from neural_search.data.msmarco import clean_text
 
@@ -95,3 +95,62 @@ class ContrastiveJSONLDataset(Dataset):
 
     def __getitem__(self, index: int) -> dict[str, Any]:
         return self.examples[index]
+
+
+def _as_list(value: str | list[str]) -> list[str]:
+    if isinstance(value, str):
+        return [item.strip() for item in value.split(",") if item.strip()]
+    return list(value)
+
+
+def load_combined_hard_negatives(
+    paths: str | list[str],
+    upsample: str | list[int] | None = None,
+    max_examples: int | None = None,
+    shuffle: bool = True,
+    seed: int = 42,
+) -> ConcatDataset:
+    """Load one or more hard-negative JSONL files into a single ConcatDataset.
+
+    ``paths`` may be a comma-separated string or a list. ``upsample`` gives a
+    per-file integer replication factor (default 1 each) so a smaller source
+    (e.g. synthetic book queries) can be weighted up against a larger one
+    (e.g. MS MARCO). ``max_examples`` is applied per file.
+
+    Every file is loaded with ``require_hard_negatives=True`` so each example
+    carries explicit negatives; keep the mined negative count uniform across
+    files (the contrastive collator requires a single count per batch).
+    """
+    path_list = _as_list(paths)
+    if not path_list:
+        raise ValueError("No hard-negative paths provided")
+
+    if upsample is None:
+        factors = [1] * len(path_list)
+    else:
+        factors = [int(x) for x in _as_list(upsample)] if isinstance(
+            upsample, str
+        ) else [int(x) for x in upsample]
+
+    if len(factors) != len(path_list):
+        raise ValueError(
+            f"upsample count ({len(factors)}) must match path count "
+            f"({len(path_list)})"
+        )
+
+    datasets: list[Dataset] = []
+    for path, factor in zip(path_list, factors):
+        if factor <= 0:
+            raise ValueError(f"upsample factor must be positive, got {factor}")
+        dataset = ContrastiveJSONLDataset(
+            path=path,
+            require_hard_negatives=True,
+            max_examples=max_examples,
+            shuffle=shuffle,
+            seed=seed,
+        )
+        print(f"  {path}: {len(dataset)} examples x{factor}")
+        # Repeat the same underlying dataset object `factor` times (no data copy).
+        datasets.extend([dataset] * factor)
+
+    return ConcatDataset(datasets)

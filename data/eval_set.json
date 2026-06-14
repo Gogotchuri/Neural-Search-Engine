@@ -1,1258 +1,1041 @@
 [
-{
-"query": "what is beam search",
-"relevant_ids": [
-"ch12-1907",
-"ch12-1908",
-"ch12-1909",
-"ch12-1911",
-"ch12-1910"
-],
-"category": "normal"
-},
-{
-"query": "how is the BLEU score computed for machine translation",
-"relevant_ids": [
-"ch12-1965",
-"ch12-1963",
-"ch12-1964",
-"ch12-1962",
-"ch12-1967",
-"ch12-1968",
-"ch12-1966"
-],
-"category": "normal"
-},
-{
-"query": "the Viterbi algorithm for hidden Markov models",
-"relevant_ids": [
-"ch17-2803",
-"ch17-2802",
-"ch17-2801",
-"ch17-2783",
-"ch17-2781",
-"ch17-2782",
-"ch17-2780"
-],
-"category": "normal"
-},
-{
-"query": "what is the perplexity of a language model",
-"relevant_ids": [
-"ch3-0329",
-"ch3-0328",
-"ch3-0327",
-"ch3-0330",
-"ch3-0332",
-"ch3-0331",
-"ch3-0334",
-"ch3-0335",
-"ch3-0333"
-],
-"category": "normal"
-},
-{
-"query": "minimum edit distance between two strings",
-"relevant_ids": [
-"ch2-0216",
-"ch2-0215",
-"ch2-0217",
-"ch2-0233",
-"ch2-0234",
-"ch2-0235"
-],
-"category": "normal"
-},
-{
-"query": "how does binary logistic regression work",
-"relevant_ids": [
-"ch4-0580",
-"ch4-0578",
-"ch4-0579"
-],
-"category": "normal"
-},
-{
-"query": "byte pair encoding for subword tokenization",
-"relevant_ids": [
-"ch2-0006",
-"ch2-0005",
-"ch2-0007"
-],
-"category": "normal"
-},
-{
-"query": "skip-gram word2vec word embeddings",
-"relevant_ids": [
-"ch5-0760",
-"ch5-0759",
-"ch5-0758",
-"ch5-0761",
-"ch5-0835",
-"ch5-0836",
-"ch5-0834"
-],
-"category": "normal"
-},
-{
-"query": "precision recall and F1 score for classification",
-"relevant_ids": [
-"ch4-0600",
-"ch4-0598",
-"ch4-0599",
-"ch4-0601",
-"ch4-0594",
-"ch4-0595",
-"ch4-0593"
-],
-"category": "normal"
-},
-{
-"query": "self-attention in the transformer architecture",
-"relevant_ids": [
-"ch8-1272",
-"ch8-1273",
-"ch8-1274",
-"ch8-1318",
-"ch8-1275",
-"ch9-1424",
-"ch9-1423",
-"ch9-1422"
-],
-"category": "normal"
-},
-{
-"query": "part of speech tagging as a disambiguation task",
-"relevant_ids": [
-"ch17-2759",
-"ch17-2758",
-"ch17-2757",
-"ch17-2766",
-"ch17-2765",
-"ch17-2764",
-"ch17-2763"
-],
-"category": "normal"
-},
-{
-"query": "what is a confusion matrix",
-"relevant_ids": [
-"ch4-0592",
-"ch4-0591"
-],
-"category": "normal"
-},
-{
-"query": "difference between inflectional and derivational morphemes",
-"relevant_ids": [
-"ch2-0040",
-"ch2-0039",
-"ch2-0038"
-],
-"category": "normal"
-},
-{
-"query": "what is a unicode code point",
-"relevant_ids": [
-"ch2-0058",
-"ch2-0059",
-"ch2-0060"
-],
-"category": "normal"
-},
-{
-"query": "why is UTF-8 a variable length encoding",
-"relevant_ids": [
-"ch2-0066",
-"ch2-0065",
-"ch2-0064",
-"ch2-0067",
-"ch2-0070",
-"ch2-0069",
-"ch2-0068",
-"ch2-0071",
-"ch2-0072",
-"ch2-0073",
-"ch2-0074",
-"ch2-0075"
-],
-"category": "normal"
-},
-{
-"query": "what is the Markov assumption in n-gram models",
-"relevant_ids": [
-"ch3-0276",
-"ch3-0277",
-"ch3-0278",
-"ch3-0275"
-],
-"category": "normal"
-},
-{
-"query": "why are language model probabilities stored in log space",
-"relevant_ids": [
-"ch3-0295",
-"ch3-0296",
-"ch3-0294"
-],
-"category": "normal"
-},
-{
-"query": "how does stupid backoff work",
-"relevant_ids": [
-"ch3-0387",
-"ch3-0389",
-"ch3-0388",
-"ch3-0391",
-"ch3-0393",
-"ch3-0390",
-"ch3-0392"
-],
-"category": "normal"
-},
-{
-"query": "what is the softmax function",
-"relevant_ids": [
-"ch4-0563",
-"ch4-0560",
-"ch4-0561",
-"ch4-0562"
-],
-"category": "normal"
-},
-{
-"query": "difference between L1 and L2 regularization",
-"relevant_ids": [
-"ch4-0663",
-"ch4-0662",
-"ch4-0665",
-"ch4-0664",
-"ch4-0667",
-"ch4-0668",
-"ch4-0666"
-],
-"category": "normal"
-},
-{
-"query": "what is the cross-entropy loss function",
-"relevant_ids": [
-"ch4-0505",
-"ch4-0507",
-"ch4-0506",
-"ch4-0504",
-"ch4-0510",
-"ch4-0508",
-"ch4-0509"
-],
-"category": "normal"
-},
-{
-"query": "how is cosine similarity between two word vectors computed",
-"relevant_ids": [
-"ch5-0745",
-"ch5-0744",
-"ch5-0742",
-"ch5-0743",
-"ch5-0746",
-"ch5-0747",
-"ch5-0748"
-],
-"category": "normal"
-},
-{
-"query": "how do word embeddings solve analogy problems",
-"relevant_ids": [
-"ch5-0805",
-"ch5-0806",
-"ch5-0807",
-"ch5-0808",
-"ch5-0810",
-"ch5-0812",
-"ch5-0811",
-"ch5-0809"
-],
-"category": "normal"
-},
-{
-"query": "what do we call two words that mean the same thing",
-"relevant_ids": [
-"ch5-0700",
-"ch5-0699",
-"ch5-0701"
-],
-"category": "bm25_hard"
-},
-{
-"query": "the smallest part of a word that still carries meaning",
-"relevant_ids": [
-"ch2-0033",
-"ch2-0034",
-"ch2-0035",
-"ch2-0036",
-"ch2-0037"
-],
-"category": "bm25_hard"
-},
-{
-"query": "a single word that can refer to several different things",
-"relevant_ids": [
-"ch5-0696",
-"ch5-0698",
-"ch5-0697"
-],
-"category": "bm25_hard"
-},
-{
-"query": "a single score that balances finding everything and being correct",
-"relevant_ids": [
-"ch4-0597",
-"ch4-0596",
-"ch4-0598"
-],
-"category": "bm25_hard"
-},
-{
-"query": "extra data used to tune the mixing weights",
-"relevant_ids": [
-"ch3-0382",
-"ch3-0383",
-"ch3-0384",
-"ch3-0386",
-"ch3-0385"
-],
-"category": "bm25_hard"
-},
-{
-"query": "why can't a single perceptron compute the XOR function",
-"relevant_ids": [
-"ch6-0882",
-"ch6-0880",
-"ch6-0881",
-"ch6-0883",
-"ch6-0885",
-"ch6-0884",
-"ch6-0886"
-],
-"category": "normal"
-},
-{
-"query": "how does error backpropagation use computation graphs and the chain rule",
-"relevant_ids": [
-"ch6-0992",
-"ch6-0995",
-"ch6-0994",
-"ch6-0993",
-"ch6-1001",
-"ch6-1000",
-"ch6-0999",
-"ch6-0998"
-],
-"category": "normal"
-},
-{
-"query": "what are the three main architectures for language models",
-"relevant_ids": [
-"ch7-1056",
-"ch7-1057",
-"ch7-1058",
-"ch7-1060",
-"ch7-1059"
-],
-"category": "normal"
-},
-{
-"query": "what is temperature sampling",
-"relevant_ids": [
-"ch7-1116",
-"ch7-1114",
-"ch7-1115",
-"ch7-1117",
-"ch7-1118"
-],
-"category": "normal"
-},
-{
-"query": "what is perplexity and how is it computed",
-"relevant_ids": [
-"ch7-1165",
-"ch7-1164",
-"ch7-1167",
-"ch7-1166",
-"ch7-1170",
-"ch7-1169",
-"ch7-1168"
-],
-"category": "normal"
-},
-{
-"query": "how do query, key, and value vectors work in a single attention head",
-"relevant_ids": [
-"ch8-1259",
-"ch8-1260",
-"ch8-1261",
-"ch8-1258",
-"ch8-1262",
-"ch8-1263",
-"ch8-1264",
-"ch8-1265",
-"ch8-1266"
-],
-"category": "normal"
-},
-{
-"query": "what is the KV cache and why is it used at inference time",
-"relevant_ids": [
-"ch8-1375",
-"ch8-1374",
-"ch8-1379",
-"ch8-1377",
-"ch8-1376",
-"ch8-1378"
-],
-"category": "normal"
-},
-{
-"query": "what is LoRA low-rank adaptation for parameter-efficient fine-tuning",
-"relevant_ids": [
-"ch8-1382",
-"ch8-1381",
-"ch8-1384",
-"ch8-1383",
-"ch8-1385"
-],
-"category": "normal"
-},
-{
-"query": "how is a masked language model trained with the cloze fill-in-the-blank task",
-"relevant_ids": [
-"ch9-1438",
-"ch9-1437",
-"ch9-1436",
-"ch9-1441",
-"ch9-1442",
-"ch9-1439",
-"ch9-1440"
-],
-"category": "normal"
-},
-{
-"query": "what is next sentence prediction in BERT",
-"relevant_ids": [
-"ch9-1458",
-"ch9-1459",
-"ch9-1457",
-"ch9-1462",
-"ch9-1461",
-"ch9-1460",
-"ch9-1463"
-],
-"category": "normal"
-},
-{
-"query": "how do contextual embeddings differ from static word embeddings",
-"relevant_ids": [
-"ch9-1479",
-"ch9-1480",
-"ch9-1478",
-"ch9-1482",
-"ch9-1483",
-"ch9-1481",
-"ch9-1484"
-],
-"category": "normal"
-},
-{
-"query": "how does a model figure out which earlier word a pronoun is referring to",
-"relevant_ids": [
-"ch8-1246",
-"ch8-1247",
-"ch8-1245",
-"ch8-1244",
-"ch8-1248",
-"ch8-1249"
-],
-"category": "bm25_hard"
-},
-{
-"query": "knocking out part of a network to test whether it causes a behavior",
-"relevant_ids": [
-"ch8-1403",
-"ch8-1401",
-"ch8-1402",
-"ch8-1404",
-"ch8-1405",
-"ch8-1406"
-],
-"category": "bm25_hard"
-},
-{
-"query": "guessing a hidden word from the words that come before and after it",
-"relevant_ids": [
-"ch7-1061",
-"ch7-1062",
-"ch7-1063",
-"ch9-1441",
-"ch9-1442",
-"ch9-1439",
-"ch9-1440"
-],
-"category": "bm25_hard"
-},
-{
-"query": "deciding whether the meaning of one sentence implies another",
-"relevant_ids": [
-"ch9-1525",
-"ch9-1523",
-"ch9-1526",
-"ch9-1524",
-"ch9-1529",
-"ch9-1530",
-"ch9-1527",
-"ch9-1528"
-],
-"category": "bm25_hard"
-},
-{
-"query": "figuring out which meaning of an ambiguous word is intended in a sentence",
-"relevant_ids": [
-"ch9-1499",
-"ch9-1498",
-"ch9-1496",
-"ch9-1497",
-"ch9-1502",
-"ch9-1501",
-"ch9-1500"
-],
-"category": "bm25_hard"
-},
-{
-"query": "how does the Bradley-Terry model turn a preference between two outputs into a probability",
-"relevant_ids": [
-"ch10-1619",
-"ch10-1618",
-"ch10-1617",
-"ch10-1616"
-],
-"category": "normal"
-},
-{
-"query": "what advantages does DPO have over PPO for preference alignment",
-"relevant_ids": [
-"ch10-1650",
-"ch10-1648",
-"ch10-1649",
-"ch10-1647"
-],
-"category": "normal"
-},
-{
-"query": "what is chain-of-thought prompting and why does it help",
-"relevant_ids": [
-"ch10-1651",
-"ch10-1653",
-"ch10-1652"
-],
-"category": "normal"
-},
-{
-"query": "what is the vocabulary mismatch problem in information retrieval",
-"relevant_ids": [
-"ch11-1747",
-"ch11-1748",
-"ch11-1746",
-"ch11-1749"
-],
-"category": "normal"
-},
-{
-"query": "what are the parameters k and b in the BM25 weighting scheme",
-"relevant_ids": [
-"ch11-1730",
-"ch11-1729",
-"ch11-1731",
-"ch11-1726",
-"ch11-1727",
-"ch11-1728",
-"ch11-1725"
-],
-"category": "normal"
-},
-{
-"query": "what is an inverted index and what are its two parts",
-"relevant_ids": [
-"ch11-1734",
-"ch11-1735",
-"ch11-1736"
-],
-"category": "normal"
-},
-{
-"query": "what is backtranslation in low-resource machine translation",
-"relevant_ids": [
-"ch12-1933",
-"ch12-1935",
-"ch12-1934"
-],
-"category": "normal"
-},
-{
-"query": "how is the chrF metric for machine translation computed",
-"relevant_ids": [
-"ch12-1958",
-"ch12-1957",
-"ch12-1956",
-"ch12-1960",
-"ch12-1959",
-"ch12-1961"
-],
-"category": "normal"
-},
-{
-"query": "what is minimum Bayes risk decoding",
-"relevant_ids": [
-"ch12-1927",
-"ch12-1926",
-"ch12-1928",
-"ch12-1932",
-"ch12-1930",
-"ch12-1931",
-"ch12-1929"
-],
-"category": "normal"
-},
-{
-"query": "what is weight tying in an RNN language model",
-"relevant_ids": [
-"ch13-2063",
-"ch13-2064",
-"ch13-2065",
-"ch13-2066",
-"ch13-2068",
-"ch13-2067"
-],
-"category": "normal"
-},
-{
-"query": "what bottleneck problem does the attention mechanism solve in encoder-decoder models",
-"relevant_ids": [
-"ch13-2163",
-"ch13-2162",
-"ch13-2161",
-"ch13-2160",
-"ch13-2159"
-],
-"category": "normal"
-},
-{
-"query": "why do AI assistants confidently state false information as if it were true",
-"relevant_ids": [
-"ch11-1678",
-"ch11-1680",
-"ch11-1679"
-],
-"category": "bm25_hard"
-},
-{
-"query": "teaching a model to obey written commands by training on examples of requests and good replies",
-"relevant_ids": [
-"ch10-1566",
-"ch10-1567",
-"ch10-1568",
-"ch10-1569"
-],
-"category": "bm25_hard"
-},
-{
-"query": "letting the generator look back at every word of the input sentence while producing output",
-"relevant_ids": [
-"ch12-1899",
-"ch12-1898",
-"ch12-1897"
-],
-"category": "bm25_hard"
-},
-{
-"query": "feeding the correct previous word during training instead of the model's own guess",
-"relevant_ids": [
-"ch13-2157",
-"ch13-2158",
-"ch13-2156",
-"ch13-2155",
-"ch12-1902",
-"ch12-1901",
-"ch12-1900"
-],
-"category": "bm25_hard"
-},
-{
-"query": "a memory cell that learns what to keep and discard so distant words are not lost",
-"relevant_ids": [
-"ch13-2109",
-"ch13-2108",
-"ch13-2107"
-],
-"category": "bm25_hard"
-},
-{
-"query": "scoring a machine translation by meaning closeness rather than exact matching words",
-"relevant_ids": [
-"ch12-1977",
-"ch12-1976",
-"ch12-1975"
-],
-"category": "bm25_hard"
-},
-{
-"query": "what is the difference between voiced and unvoiced sounds",
-"relevant_ids": [
-"ch14-2209",
-"ch14-2208",
-"ch14-2207",
-"ch14-2210"
-],
-"category": "normal"
-},
-{
-"query": "what is the Nyquist frequency and the required sampling rate for speech",
-"relevant_ids": [
-"ch14-2267",
-"ch14-2331",
-"ch14-2266",
-"ch14-2268",
-"ch14-2269",
-"ch14-2263",
-"ch14-2264",
-"ch14-2265",
-"ch14-2330"
-],
-"category": "normal"
-},
-{
-"query": "how is the cepstrum used to separate the source and the vocal tract filter",
-"relevant_ids": [
-"ch14-2355",
-"ch14-2356",
-"ch14-2358",
-"ch14-2359",
-"ch14-2357",
-"ch14-2360"
-],
-"category": "normal"
-},
-{
-"query": "why does the CTC algorithm add a blank symbol to the alphabet",
-"relevant_ids": [
-"ch15-2511",
-"ch15-2509",
-"ch15-2510",
-"ch15-2508",
-"ch15-2507",
-"ch15-2506"
-],
-"category": "normal"
-},
-{
-"query": "how does HuBERT use masking like BERT for self-supervised speech learning",
-"relevant_ids": [
-"ch15-2477",
-"ch15-2478",
-"ch15-2479"
-],
-"category": "normal"
-},
-{
-"query": "how does cross-attention work in the encoder-decoder decoder",
-"relevant_ids": [
-"ch15-2466",
-"ch15-2463",
-"ch15-2464",
-"ch15-2465",
-"ch15-2461",
-"ch15-2462"
-],
-"category": "normal"
-},
-{
-"query": "what is residual vector quantization",
-"relevant_ids": [
-"ch16-2631",
-"ch16-2630",
-"ch16-2629",
-"ch16-2644",
-"ch16-2643",
-"ch16-2645",
-"ch16-2642"
-],
-"category": "normal"
-},
-{
-"query": "what is the mean opinion score used to evaluate text-to-speech",
-"relevant_ids": [
-"ch16-2695",
-"ch16-2694",
-"ch16-2696"
-],
-"category": "normal"
-},
-{
-"query": "what are the three stages of an audio tokenizer encoder quantizer decoder",
-"relevant_ids": [
-"ch16-2609",
-"ch16-2606",
-"ch16-2607",
-"ch16-2608"
-],
-"category": "normal"
-},
-{
-"query": "what are the transition and emission probabilities in an HMM part-of-speech tagger",
-"relevant_ids": [
-"ch17-2788",
-"ch17-2789",
-"ch17-2790",
-"ch17-2787",
-"ch17-2791",
-"ch17-2792"
-],
-"category": "normal"
-},
-{
-"query": "difference between closed class and open class words",
-"relevant_ids": [
-"ch17-2737",
-"ch17-2736",
-"ch17-2735",
-"ch17-2733",
-"ch17-2734"
-],
-"category": "normal"
-},
-{
-"query": "turning spoken audio into written text",
-"relevant_ids": [
-"ch14-2384",
-"ch14-2385",
-"ch14-2386",
-"ch15-2553",
-"ch15-2554",
-"ch15-2555"
-],
-"category": "bm25_hard"
-},
-{
-"query": "measuring how often a transcription system gets the words wrong",
-"relevant_ids": [
-"ch15-2535",
-"ch15-2537",
-"ch15-2536",
-"ch15-2534",
-"ch15-2533",
-"ch15-2532"
-],
-"category": "bm25_hard"
-},
-{
-"query": "labeling which person is talking during each part of a long audio file",
-"relevant_ids": [
-"ch16-2701",
-"ch16-2703",
-"ch16-2702"
-],
-"category": "bm25_hard"
-},
-{
-"query": "letting a voice assistant know it should start listening",
-"relevant_ids": [
-"ch16-2704",
-"ch16-2707",
-"ch16-2705",
-"ch16-2706"
-],
-"category": "bm25_hard"
-},
-{
-"query": "automatically finding which words are names of people or companies",
-"relevant_ids": [
-"ch17-2768",
-"ch17-2767",
-"ch17-2766",
-"ch17-2765",
-"ch17-2764",
-"ch17-2763"
-],
-"category": "bm25_hard"
-},
-{
-"query": "what is Chomsky normal form",
-"relevant_ids": [
-"ch18-2937",
-"ch18-2936",
-"ch18-2935",
-"ch18-2954",
-"ch18-2955"
-],
-"category": "normal"
-},
-{
-"query": "what is PARSEVAL and how are parsers evaluated",
-"relevant_ids": [
-"ch18-3005",
-"ch18-3004",
-"ch18-3006",
-"ch18-3003",
-"ch18-3008",
-"ch18-3007",
-"ch18-3009"
-],
-"category": "normal"
-},
-{
-"query": "how does span-based neural constituency parsing work",
-"relevant_ids": [
-"ch18-2987",
-"ch18-2988",
-"ch18-2989"
-],
-"category": "normal"
-},
-{
-"query": "difference between arc-standard and arc-eager parsing",
-"relevant_ids": [
-"ch19-3114",
-"ch19-3113",
-"ch19-3112",
-"ch19-3116",
-"ch19-3117",
-"ch19-3115"
-],
-"category": "normal"
-},
-{
-"query": "what is projectivity in dependency parsing",
-"relevant_ids": [
-"ch19-3055",
-"ch19-3057",
-"ch19-3056",
-"ch19-3060",
-"ch19-3058",
-"ch19-3059"
-],
-"category": "normal"
-},
-{
-"query": "Chu-Liu-Edmonds maximum spanning tree algorithm for parsing",
-"relevant_ids": [
-"ch19-3134",
-"ch19-3135",
-"ch19-3136",
-"ch19-3142",
-"ch19-3144",
-"ch19-3143",
-"ch19-3141"
-],
-"category": "normal"
-},
-{
-"query": "what is distant supervision for relation extraction",
-"relevant_ids": [
-"ch20-3235",
-"ch20-3234",
-"ch20-3233",
-"ch20-3232",
-"ch20-3236",
-"ch20-3237",
-"ch20-3238"
-],
-"category": "normal"
-},
-{
-"query": "what are Hearst patterns",
-"relevant_ids": [
-"ch20-3208",
-"ch20-3207",
-"ch20-3211",
-"ch20-3209",
-"ch20-3210"
-],
-"category": "normal"
-},
-{
-"query": "what is Reichenbach's reference point",
-"relevant_ids": [
-"ch20-3275",
-"ch20-3276",
-"ch20-3274"
-],
-"category": "normal"
-},
-{
-"query": "what are thematic roles",
-"relevant_ids": [
-"ch21-3363",
-"ch21-3364",
-"ch21-3367",
-"ch21-3366",
-"ch21-3368",
-"ch21-3365"
-],
-"category": "normal"
-},
-{
-"query": "what is a selectional restriction",
-"relevant_ids": [
-"ch21-3433",
-"ch21-3431",
-"ch21-3432",
-"ch21-3430",
-"ch21-3428",
-"ch21-3429"
-],
-"category": "normal"
-},
-{
-"query": "how do PropBank and FrameNet roles differ",
-"relevant_ids": [
-"ch21-3406",
-"ch21-3408",
-"ch21-3407"
-],
-"category": "normal"
-},
-{
-"query": "errors build up when bad rules introduce wrong examples that create more bad rules",
-"relevant_ids": [
-"ch20-3229",
-"ch20-3228",
-"ch20-3227"
-],
-"category": "bm25_hard"
-},
-{
-"query": "deciding if a group of words forms a unit by swapping it for a simpler word",
-"relevant_ids": [
-"ch18-3025",
-"ch18-3026",
-"ch18-3024"
-],
-"category": "bm25_hard"
-},
-{
-"query": "testing a model with made-up words formed by joining two real words together",
-"relevant_ids": [
-"ch21-3458",
-"ch21-3460",
-"ch21-3459"
-],
-"category": "bm25_hard"
-},
-{
-"query": "a parsing method that judges an entire sentence structure at once instead of one step at a time",
-"relevant_ids": [
-"ch19-3131",
-"ch19-3133",
-"ch19-3132"
-],
-"category": "bm25_hard"
-},
-{
-"query": "what do we call words such as make and have when the noun expresses the real action",
-"relevant_ids": [
-"ch20-3269",
-"ch20-3268",
-"ch20-3267"
-],
-"category": "bm25_hard"
-},
-{
-"query": "what is the Plutchik wheel of emotion and the idea of basic emotions",
-"relevant_ids": [
-"ch22-3505",
-"ch22-3504",
-"ch22-3503",
-"ch22-3507",
-"ch22-3508",
-"ch22-3506"
-],
-"category": "normal"
-},
-{
-"query": "how does the log odds ratio with informative Dirichlet prior find words overrepresented in one category of text",
-"relevant_ids": [
-"ch22-3573",
-"ch22-3572",
-"ch22-3574",
-"ch22-3575"
-],
-"category": "normal"
-},
-{
-"query": "how can word sentiment be learned from online review star ratings as a supervision signal",
-"relevant_ids": [
-"ch22-3556",
-"ch22-3558",
-"ch22-3557",
-"ch22-3555",
-"ch22-3561",
-"ch22-3560",
-"ch22-3562",
-"ch22-3559"
-],
-"category": "normal"
-},
-{
-"query": "what is the Winograd Schema Challenge",
-"relevant_ids": [
-"ch23-3828",
-"ch23-3827",
-"ch23-3659",
-"ch23-3830",
-"ch23-3831",
-"ch23-3829"
-],
-"category": "normal"
-},
-{
-"query": "how does the mention-pair architecture for coreference resolution work",
-"relevant_ids": [
-"ch23-3740",
-"ch23-3738",
-"ch23-3739",
-"ch23-3737"
-],
-"category": "normal"
-},
-{
-"query": "what is entity linking and wikification",
-"relevant_ids": [
-"ch23-3788",
-"ch23-3787",
-"ch23-3786",
-"ch23-3791",
-"ch23-3789",
-"ch23-3790"
-],
-"category": "normal"
-},
-{
-"query": "what are the nucleus and satellite in Rhetorical Structure Theory",
-"relevant_ids": [
-"ch24-3887",
-"ch24-3888",
-"ch24-3886"
-],
-"category": "normal"
-},
-{
-"query": "what is the entity grid model of discourse coherence",
-"relevant_ids": [
-"ch24-3969",
-"ch24-3970",
-"ch24-3971",
-"ch24-3972",
-"ch24-3974",
-"ch24-3973",
-"ch24-3975",
-"ch24-3982"
-],
-"category": "normal"
-},
-{
-"query": "what is argumentation mining with claims and premises in persuasive essays",
-"relevant_ids": [
-"ch24-4031",
-"ch24-4032",
-"ch24-4030",
-"ch24-4033",
-"ch24-4035",
-"ch24-4036",
-"ch24-4034"
-],
-"category": "normal"
-},
-{
-"query": "what are speech acts and dialogue acts and their major classes",
-"relevant_ids": [
-"ch25-4087",
-"ch25-4086",
-"ch25-4085",
-"ch25-4088",
-"ch25-4114",
-"ch25-4116",
-"ch25-4115",
-"ch25-4113"
-],
-"category": "normal"
-},
-{
-"query": "what is conversational implicature and Grice's maxim of relevance",
-"relevant_ids": [
-"ch25-4108",
-"ch25-4107",
-"ch25-4109",
-"ch25-4110",
-"ch25-4112",
-"ch25-4111"
-],
-"category": "normal"
-},
-{
-"query": "how can choosing a particular verb reveal the writer's sympathy toward the people it acts on",
-"relevant_ids": [
-"ch22-3613",
-"ch22-3611",
-"ch22-3612",
-"ch22-3601",
-"ch22-3600",
-"ch22-3599"
-],
-"category": "bm25_hard"
-},
-{
-"query": "a pronoun that appears before the noun it stands for",
-"relevant_ids": [
-"ch23-3671",
-"ch23-3670",
-"ch23-3669",
-"ch23-3668"
-],
-"category": "bm25_hard"
-},
-{
-"query": "why do later references to a person tend to get shorter as a story goes on",
-"relevant_ids": [
-"ch23-3683",
-"ch23-3686",
-"ch23-3684",
-"ch23-3685"
-],
-"category": "bm25_hard"
-},
-{
-"query": "breaking a text into clause-sized pieces before analyzing how they relate to each other",
-"relevant_ids": [
-"ch24-3913",
-"ch24-3912",
-"ch24-3911"
-],
-"category": "bm25_hard"
-},
-{
-"query": "what are the short sounds a listener makes to show they are following along while someone else talks",
-"relevant_ids": [
-"ch25-4095",
-"ch25-4097",
-"ch25-4096",
-"ch25-4094"
-],
-"category": "bm25_hard"
-},
-{
-"query": "conversational exchanges that come in expected two-part pairs such as a question and its reply",
-"relevant_ids": [
-"ch25-4100",
-"ch25-4098",
-"ch25-4099"
-],
-"category": "bm25_hard"
-}
+  {
+    "query": "what is beam search",
+    "relevant_ids": [
+      "ch12-0954",
+      "ch12-0955",
+      "ch12-0956"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how is the BLEU score computed for machine translation",
+    "relevant_ids": [
+      "ch12-0982",
+      "ch12-0983",
+      "ch12-0984"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "the Viterbi algorithm for hidden Markov models",
+    "relevant_ids": [
+      "ch17-1391",
+      "ch17-1392",
+      "ch17-1393",
+      "ch17-1395",
+      "ch17-1403",
+      "ch17-1404"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is the perplexity of a language model",
+    "relevant_ids": [
+      "ch3-0166",
+      "ch3-0167",
+      "ch3-0168",
+      "ch3-0169",
+      "ch3-0170"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "minimum edit distance between two strings",
+    "relevant_ids": [
+      "ch2-0108",
+      "ch2-0109",
+      "ch2-0118",
+      "ch2-0119"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how does binary logistic regression work",
+    "relevant_ids": [
+      "ch4-0293",
+      "ch4-0294"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "byte pair encoding for subword tokenization",
+    "relevant_ids": [
+      "ch2-0002",
+      "ch2-0003"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "skip-gram word2vec word embeddings",
+    "relevant_ids": [
+      "ch5-0384",
+      "ch5-0385",
+      "ch5-0421",
+      "ch5-0422"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "precision recall and F1 score for classification",
+    "relevant_ids": [
+      "ch4-0301",
+      "ch4-0302",
+      "ch4-0303",
+      "ch4-0304"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "self-attention in the transformer architecture",
+    "relevant_ids": [
+      "ch8-0643",
+      "ch8-0644",
+      "ch8-0664",
+      "ch8-0718",
+      "ch9-0719"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "part of speech tagging as a disambiguation task",
+    "relevant_ids": [
+      "ch17-1380",
+      "ch17-1381",
+      "ch17-1383",
+      "ch17-1384"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is a confusion matrix",
+    "relevant_ids": [
+      "ch4-0300"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "difference between inflectional and derivational morphemes",
+    "relevant_ids": [
+      "ch2-0020"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is a unicode code point",
+    "relevant_ids": [
+      "ch2-0029",
+      "ch2-0031"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "why is UTF-8 a variable length encoding",
+    "relevant_ids": [
+      "ch2-0033",
+      "ch2-0034",
+      "ch2-0035",
+      "ch2-0036",
+      "ch2-0037",
+      "ch2-0038",
+      "ch2-0039"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is the Markov assumption in n-gram models",
+    "relevant_ids": [
+      "ch3-0140",
+      "ch3-0141",
+      "ch3-0142"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "why are language model probabilities stored in log space",
+    "relevant_ids": [
+      "ch3-0150",
+      "ch3-0151"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how does stupid backoff work",
+    "relevant_ids": [
+      "ch3-0195",
+      "ch3-0196",
+      "ch3-0197",
+      "ch3-0198"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is the softmax function",
+    "relevant_ids": [
+      "ch4-0284",
+      "ch4-0285",
+      "ch4-0286"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "difference between L1 and L2 regularization",
+    "relevant_ids": [
+      "ch4-0335",
+      "ch4-0336",
+      "ch4-0337",
+      "ch4-0338",
+      "ch4-0339"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is the cross-entropy loss function",
+    "relevant_ids": [
+      "ch4-0255",
+      "ch4-0256",
+      "ch4-0257",
+      "ch4-0258"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how is cosine similarity between two word vectors computed",
+    "relevant_ids": [
+      "ch5-0374",
+      "ch5-0375",
+      "ch5-0376",
+      "ch5-0377",
+      "ch5-0378"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how do word embeddings solve analogy problems",
+    "relevant_ids": [
+      "ch5-0408",
+      "ch5-0409",
+      "ch5-0410",
+      "ch5-0411"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what do we call two words that mean the same thing",
+    "relevant_ids": [
+      "ch5-0354",
+      "ch5-0355"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "the smallest part of a word that still carries meaning",
+    "relevant_ids": [
+      "ch2-0017",
+      "ch2-0018",
+      "ch2-0019"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "a single word that can refer to several different things",
+    "relevant_ids": [
+      "ch5-0352",
+      "ch5-0353"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "a single score that balances finding everything and being correct",
+    "relevant_ids": [
+      "ch4-0302",
+      "ch4-0303"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "extra data used to tune the mixing weights",
+    "relevant_ids": [
+      "ch3-0193",
+      "ch3-0194",
+      "ch3-0195"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "why can't a single perceptron compute the XOR function",
+    "relevant_ids": [
+      "ch6-0444",
+      "ch6-0445",
+      "ch6-0446",
+      "ch6-0447"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how does error backpropagation use computation graphs and the chain rule",
+    "relevant_ids": [
+      "ch6-0502",
+      "ch6-0503",
+      "ch6-0504",
+      "ch6-0505",
+      "ch6-0506"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what are the three main architectures for language models",
+    "relevant_ids": [
+      "ch7-0534",
+      "ch7-0535",
+      "ch7-0536"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is temperature sampling",
+    "relevant_ids": [
+      "ch7-0563",
+      "ch7-0564",
+      "ch7-0565"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is perplexity and how is it computed",
+    "relevant_ids": [
+      "ch3-0166",
+      "ch7-0588",
+      "ch7-0589",
+      "ch7-0590",
+      "ch7-0591",
+      "ch7-0592"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how do query, key, and value vectors work in a single attention head",
+    "relevant_ids": [
+      "ch8-0636",
+      "ch8-0637",
+      "ch8-0638",
+      "ch8-0639",
+      "ch8-0640"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is the KV cache and why is it used at inference time",
+    "relevant_ids": [
+      "ch8-0693",
+      "ch8-0694",
+      "ch8-0695"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is LoRA low-rank adaptation for parameter-efficient fine-tuning",
+    "relevant_ids": [
+      "ch8-0696",
+      "ch8-0697",
+      "ch8-0698"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how is a masked language model trained with the cloze fill-in-the-blank task",
+    "relevant_ids": [
+      "ch9-0725",
+      "ch9-0726",
+      "ch9-0727",
+      "ch9-0728"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is next sentence prediction in BERT",
+    "relevant_ids": [
+      "ch9-0735",
+      "ch9-0736",
+      "ch9-0737",
+      "ch9-0738"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how do contextual embeddings differ from static word embeddings",
+    "relevant_ids": [
+      "ch9-0744",
+      "ch9-0745",
+      "ch9-0746",
+      "ch9-0747"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how does a model figure out which earlier word a pronoun is referring to",
+    "relevant_ids": [
+      "ch8-0629",
+      "ch8-0630",
+      "ch8-0631",
+      "ch8-0632"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "knocking out part of a network to test whether it causes a behavior",
+    "relevant_ids": [
+      "ch8-0707",
+      "ch8-0708",
+      "ch8-0709",
+      "ch8-0710"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "guessing a hidden word from the words that come before and after it",
+    "relevant_ids": [
+      "ch7-0537",
+      "ch7-0538",
+      "ch9-0726",
+      "ch9-0727",
+      "ch9-0728"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "deciding whether the meaning of one sentence implies another",
+    "relevant_ids": [
+      "ch17-1384",
+      "ch9-0765",
+      "ch9-0766",
+      "ch9-0767",
+      "ch9-0768"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "figuring out which meaning of an ambiguous word is intended in a sentence",
+    "relevant_ids": [
+      "ch9-0753",
+      "ch9-0754",
+      "ch9-0755"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "how does the Bradley-Terry model turn a preference between two outputs into a probability",
+    "relevant_ids": [
+      "ch10-0811",
+      "ch10-0812",
+      "ch10-0813"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what advantages does DPO have over PPO for preference alignment",
+    "relevant_ids": [
+      "ch10-0827",
+      "ch10-0828",
+      "ch10-0829"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is chain-of-thought prompting and why does it help",
+    "relevant_ids": [
+      "ch10-0829",
+      "ch10-0830"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is the vocabulary mismatch problem in information retrieval",
+    "relevant_ids": [
+      "ch11-0877",
+      "ch11-0878"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what are the parameters k and b in the BM25 weighting scheme",
+    "relevant_ids": [
+      "ch11-0867",
+      "ch11-0868",
+      "ch11-0869"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is an inverted index and what are its two parts",
+    "relevant_ids": [
+      "ch11-0871",
+      "ch11-0872"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is backtranslation in low-resource machine translation",
+    "relevant_ids": [
+      "ch12-0967",
+      "ch12-0968"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how is the chrF metric for machine translation computed",
+    "relevant_ids": [
+      "ch12-0979",
+      "ch12-0980",
+      "ch12-0981"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is minimum Bayes risk decoding",
+    "relevant_ids": [
+      "ch12-0964",
+      "ch12-0965",
+      "ch12-0966",
+      "ch12-0967"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is weight tying in an RNN language model",
+    "relevant_ids": [
+      "ch13-1030",
+      "ch13-1031",
+      "ch13-1032",
+      "ch13-1033"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what bottleneck problem does the attention mechanism solve in encoder-decoder models",
+    "relevant_ids": [
+      "ch13-1079",
+      "ch13-1080",
+      "ch13-1081"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "why do AI assistants confidently state false information as if it were true",
+    "relevant_ids": [
+      "ch10-0843",
+      "ch11-0844"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "teaching a model to obey written commands by training on examples of requests and good replies",
+    "relevant_ids": [
+      "ch10-0786",
+      "ch10-0787"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "letting the generator look back at every word of the input sentence while producing output",
+    "relevant_ids": [
+      "ch12-0948",
+      "ch12-0949",
+      "ch15-1232"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "feeding the correct previous word during training instead of the model's own guess",
+    "relevant_ids": [
+      "ch12-0950",
+      "ch12-0951",
+      "ch12-0953",
+      "ch13-1077",
+      "ch13-1078",
+      "ch15-1233",
+      "ch15-1234"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "a memory cell that learns what to keep and discard so distant words are not lost",
+    "relevant_ids": [
+      "ch13-1052",
+      "ch13-1053"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "scoring a machine translation by meaning closeness rather than exact matching words",
+    "relevant_ids": [
+      "ch12-0988",
+      "ch12-0989"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "what is the difference between voiced and unvoiced sounds",
+    "relevant_ids": [
+      "ch14-1104",
+      "ch14-1105",
+      "ch14-1106"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is the Nyquist frequency and the required sampling rate for speech",
+    "relevant_ids": [
+      "ch14-1132",
+      "ch14-1133",
+      "ch14-1134",
+      "ch14-1165",
+      "ch14-1166",
+      "ch14-1167",
+      "ch14-1168"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how is the cepstrum used to separate the source and the vocal tract filter",
+    "relevant_ids": [
+      "ch14-1179",
+      "ch14-1180",
+      "ch14-1181",
+      "ch14-1182"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "why does the CTC algorithm add a blank symbol to the alphabet",
+    "relevant_ids": [
+      "ch15-1254",
+      "ch15-1255",
+      "ch15-1256"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how does HuBERT use masking like BERT for self-supervised speech learning",
+    "relevant_ids": [
+      "ch15-1239",
+      "ch15-1240"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how does cross-attention work in the encoder-decoder decoder",
+    "relevant_ids": [
+      "ch12-0949",
+      "ch12-0950",
+      "ch12-0951",
+      "ch15-1231",
+      "ch15-1232",
+      "ch15-1233",
+      "ch15-1234"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is residual vector quantization",
+    "relevant_ids": [
+      "ch16-1316",
+      "ch16-1317",
+      "ch16-1322",
+      "ch16-1323",
+      "ch16-1324"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is the mean opinion score used to evaluate text-to-speech",
+    "relevant_ids": [
+      "ch16-1350",
+      "ch16-1351"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "what are the three stages of an audio tokenizer encoder quantizer decoder",
+    "relevant_ids": [
+      "ch16-1305",
+      "ch16-1306"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what are the transition and emission probabilities in an HMM part-of-speech tagger",
+    "relevant_ids": [
+      "ch17-1395",
+      "ch17-1396",
+      "ch17-1397",
+      "ch17-1398"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "difference between closed class and open class words",
+    "relevant_ids": [
+      "ch17-1369",
+      "ch17-1370",
+      "ch17-1371"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "turning spoken audio into written text",
+    "relevant_ids": [
+      "ch14-1192",
+      "ch14-1195",
+      "ch14-1196",
+      "ch15-1277",
+      "ch15-1278"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "measuring how often a transcription system gets the words wrong",
+    "relevant_ids": [
+      "ch15-1266",
+      "ch15-1267",
+      "ch15-1268",
+      "ch15-1269"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "labeling which person is talking during each part of a long audio file",
+    "relevant_ids": [
+      "ch16-1354"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "letting a voice assistant know it should start listening",
+    "relevant_ids": [
+      "ch16-1355",
+      "ch16-1356"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "automatically finding which words are names of people or companies",
+    "relevant_ids": [
+      "ch17-1383",
+      "ch17-1384",
+      "ch17-1385",
+      "ch9-0768",
+      "ch9-0769"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "what is Chomsky normal form",
+    "relevant_ids": [
+      "ch18-1474",
+      "ch18-1475",
+      "ch18-1484"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is PARSEVAL and how are parsers evaluated",
+    "relevant_ids": [
+      "ch18-1509",
+      "ch18-1510",
+      "ch18-1511"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "how does span-based neural constituency parsing work",
+    "relevant_ids": [
+      "ch18-1500",
+      "ch18-1501"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "difference between arc-standard and arc-eager parsing",
+    "relevant_ids": [
+      "ch19-1545",
+      "ch19-1565",
+      "ch19-1566",
+      "ch19-1567"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is projectivity in dependency parsing",
+    "relevant_ids": [
+      "ch19-1537",
+      "ch19-1538",
+      "ch19-1539"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "Chu-Liu-Edmonds maximum spanning tree algorithm for parsing",
+    "relevant_ids": [
+      "ch19-1576",
+      "ch19-1577",
+      "ch19-1580",
+      "ch19-1581"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is distant supervision for relation extraction",
+    "relevant_ids": [
+      "ch20-1627",
+      "ch20-1628",
+      "ch20-1629",
+      "ch20-1630"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what are Hearst patterns",
+    "relevant_ids": [
+      "ch20-1613",
+      "ch20-1614",
+      "ch20-1615"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is Reichenbach's reference point",
+    "relevant_ids": [
+      "ch20-1652",
+      "ch20-1653"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what are thematic roles",
+    "relevant_ids": [
+      "ch21-1697",
+      "ch21-1698",
+      "ch21-1699",
+      "ch21-1700"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is a selectional restriction",
+    "relevant_ids": [
+      "ch21-1733",
+      "ch21-1734",
+      "ch21-1735"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how do PropBank and FrameNet roles differ",
+    "relevant_ids": [
+      "ch21-1721",
+      "ch21-1722"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "errors build up when bad rules introduce wrong examples that create more bad rules",
+    "relevant_ids": [
+      "ch20-1624",
+      "ch20-1625"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "deciding if a group of words forms a unit by swapping it for a simpler word",
+    "relevant_ids": [
+      "ch18-1521",
+      "ch18-1522"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "testing a model with made-up words formed by joining two real words together",
+    "relevant_ids": [
+      "ch21-1747",
+      "ch21-1748",
+      "ch21-1749"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "a parsing method that judges an entire sentence structure at once instead of one step at a time",
+    "relevant_ids": [
+      "ch19-1575",
+      "ch19-1576"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "what do we call words such as make and have when the noun expresses the real action",
+    "relevant_ids": [
+      "ch20-1646",
+      "ch20-1647",
+      "ch20-1648"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is the Plutchik wheel of emotion and the idea of basic emotions",
+    "relevant_ids": [
+      "ch22-1769",
+      "ch22-1770",
+      "ch22-1771",
+      "ch22-1772"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how does the log odds ratio with informative Dirichlet prior find words overrepresented in one category of text",
+    "relevant_ids": [
+      "ch22-1803",
+      "ch22-1804",
+      "ch22-1805"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how can word sentiment be learned from online review star ratings as a supervision signal",
+    "relevant_ids": [
+      "ch22-1796",
+      "ch22-1797",
+      "ch22-1798",
+      "ch22-1799"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is the Winograd Schema Challenge",
+    "relevant_ids": [
+      "ch23-1848",
+      "ch23-1931",
+      "ch23-1932",
+      "ch23-1933"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how does the mention-pair architecture for coreference resolution work",
+    "relevant_ids": [
+      "ch23-1887",
+      "ch23-1888"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is entity linking and wikification",
+    "relevant_ids": [
+      "ch23-1910",
+      "ch23-1911",
+      "ch23-1912",
+      "ch23-1913"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what are the nucleus and satellite in Rhetorical Structure Theory",
+    "relevant_ids": [
+      "ch24-1962",
+      "ch24-1963"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is the entity grid model of discourse coherence",
+    "relevant_ids": [
+      "ch24-2003",
+      "ch24-2004",
+      "ch24-2005",
+      "ch24-2006",
+      "ch24-2010"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is argumentation mining with claims and premises in persuasive essays",
+    "relevant_ids": [
+      "ch24-2035",
+      "ch24-2036",
+      "ch24-2037",
+      "ch24-2038"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what are speech acts and dialogue acts and their major classes",
+    "relevant_ids": [
+      "ch25-2060",
+      "ch25-2061",
+      "ch25-2062",
+      "ch25-2074",
+      "ch25-2075"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "what is conversational implicature and Grice's maxim of relevance",
+    "relevant_ids": [
+      "ch25-2071",
+      "ch25-2072",
+      "ch25-2073",
+      "ch25-2074"
+    ],
+    "category": "normal"
+  },
+  {
+    "query": "how can choosing a particular verb reveal the writer's sympathy toward the people it acts on",
+    "relevant_ids": [
+      "ch22-1818",
+      "ch22-1819",
+      "ch22-1824",
+      "ch22-1825"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "a pronoun that appears before the noun it stands for",
+    "relevant_ids": [
+      "ch23-1853",
+      "ch23-1854",
+      "ch23-1855"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "why do later references to a person tend to get shorter as a story goes on",
+    "relevant_ids": [
+      "ch23-1861",
+      "ch23-1862"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "breaking a text into clause-sized pieces before analyzing how they relate to each other",
+    "relevant_ids": [
+      "ch24-1974",
+      "ch24-1975"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "what are the short sounds a listener makes to show they are following along while someone else talks",
+    "relevant_ids": [
+      "ch25-2066",
+      "ch25-2067"
+    ],
+    "category": "bm25_hard"
+  },
+  {
+    "query": "conversational exchanges that come in expected two-part pairs such as a question and its reply",
+    "relevant_ids": [
+      "ch25-2067",
+      "ch25-2068"
+    ],
+    "category": "bm25_hard"
+  }
 ]
