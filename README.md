@@ -1,6 +1,9 @@
 # Neural Search Engine
 
-Semantic search over Jurafsky & Martin's *Speech and Language Processing* textbook, using a from-scratch transformer encoder trained with contrastive learning (InfoNCE) on MS MARCO.
+Semantic search over Jurafsky & Martin's *Speech and Language Processing* textbook, using a from-scratch MLM transformer encoder trained with contrastive learning (InfoNCE) on MS MARCO.
+
+## Documentation
+For complete results and documentation check [reports/](reports/)
 
 ## Setup
 
