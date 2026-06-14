@@ -229,9 +229,9 @@ The positive passages remain the first `B` candidates so the labels still point 
 
 | | `p0` | `p1` | `p2` | `n0_1` | `n0_2` | `n1_1` | `n1_2` | `n2_1` | `n2_2` |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| `q0` | ✅ correct | negative | negative | hard negative | hard negative | negative | negative | negative | negative |
-| `q1` | negative | ✅ correct | negative | negative | negative | hard negative | hard negative | negative | negative |
-| `q2` | negative | negative | ✅ correct | negative | negative | negative | negative | hard negative | hard negative |
+| `q0` | target | negative | negative | hard negative | hard negative | negative | negative | negative | negative |
+| `q1` | negative | target | negative | negative | negative | hard negative | hard negative | negative | negative |
+| `q2` | negative | negative | target | negative | negative | negative | negative | hard negative | hard negative |
 
 This extension allowed the final training loop to train with semi-hard negatives rather than relying only on in-batch negatives.
 
@@ -296,11 +296,31 @@ To support this we mined wider top-10 candidate list for each query. This gave u
 
 We also analyzed BM25 score decay across the top-10 candidates. Since raw BM25 scores are not directly comparable across different queries normalized score ratios were more useful. The analysis showed that BM25 score decay was gradual rather than abrupt so later candidates in the top-10 list still retained a large fraction of the top candidate's BM25 score meaning they were still lexically related to the query and were not simply random easy negatives.
 
-![alt text](figures/bm25_score_decay_10.png)
+<table>
+  <tr>
+    <td width="50%">
+      <img src="figures/bm25_score_decay_rank.png" alt="Average BM25 score decay by negative rank">
+      <br>
+      <sub><b>(a)</b> Average BM25 score decay by negative rank.</sub>
+    </td>
+    <td width="50%">
+      <img src="figures/bm25_score_decay_rank_norm.png" alt="Normalized BM25 score decay by negative rank">
+      <br>
+      <sub><b>(b)</b> Normalized BM25 score decay by negative rank.</sub>
+    </td>
+  </tr>
+</table>
 
-|||
-| ------------- | ------------- |
-| ![alt text](figures/bm25_score_decay_rank.png) | ![alt text](figures/bm25_score_decay_rank_norm.png) |
+<details>
+<summary>Additional per-query BM25 score decay plot</summary>
+
+<p align="center">
+  <img src="figures/bm25_score_decay_10.png" alt="BM25 score decay across 10 sampled queries" width="85%">
+</p>
+
+<sub><b>(c)</b> BM25 score decay across 10 sampled queries. This plot shows that exact decay pattern differs by query though general trend remains visible.</sub>
+
+</details>
 
 This made the hard-negative pipeline more robust. Instead of assuming that BM25 rank 1 is always the best negative, this pipeline allowed controlled experiments with different negative difficulty levels and was ultimately used in the final training pipeline.
 
@@ -317,20 +337,6 @@ Second, manual inspection showed that selected positive passages were mostly rel
 Third, hard-negative examples were inspected manually. This showed that BM25 mining produced useful challenging candidates but also revealed the false-negative issue. This motivated the semi-hard negative strategy.
 
 Finally, BM25 score analysis across top-10 candidates showed that later candidates were still meaningfully related to the query. This supported using rank-window slicing and score-based filtering as ways to balance difficulty and noise.
-
----
-
-## Positional Encoding
-
-The encoder uses a Transformer style architecture and does not inherently know token order. Without positional information model can compare token embeddings, but positional encoding is needed.
-
-The final implementation used sinusoidal positional encoding. Sinusoidal positional encoding adds deterministic vector to each token embedding based on the token's position in the sequence. This gives the model access to order information without adding trainable parameters.
-
-We considered learned positional embeddings as an alternative. A learned positional embedding would use a trainable lookup table where each position has its own learned vector. This can work well when training and inference sequence lengths are fixed and similar. However, learned absolute positional embeddings do not naturally extrapolate to unseen positions. If the model is trained mostly on shorter sequences then later positions may be undertrained or unused.
-
-For this project sinusoidal positional encoding was a reasonable baseline because it is simple, deterministic, parameter-free and works with fixed maximum query and passage lengths. The more important practical issue was not the exact type of positional encoding but keeping training and retrieval inputs compatible. Very long demo queries or oversized book chunks could hurt retrieval regardless of the positional encoding method.
-
-Learned positional embeddings were left as a possible future experimentation direction rather than being used in the final implementation.
 
 ---
 
