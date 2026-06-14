@@ -81,7 +81,7 @@ Epoch 3/3 — avg loss: 0.2975
 | Encoder (trained)   | 0.2764   | 0.5928   | 0.7363    | 0.6188  | 0.5743  |
 
 ##### [bm25_hard] -- 32 queries (no original keywords mentioned in queries)
-(* Queries that have been created with prefaced question, not containing keywords)
+(* Queries that have been created with paraphrased question, not containing keywords)
  
 | Retriever           | Recall@1 | Recall@5 | Recall@10 | MRR@10  | nDCG@10 |
 | ------------------- | -------- | -------- | --------- | ------- | ------- |
